@@ -1,3 +1,6 @@
 # BostezoPragmatico
-#proyecto en proceso de ideas
-RecaudarFondos=3118480061 #nequi
+Los integrantes del proyecto son:
+Benny Javed Gomez
+Duvan Andres Mora
+Duvan Felipe Leon
+Carlos Masavel
