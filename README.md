@@ -1,5 +1,5 @@
 # BostezoPragmatico
-Los integrantes del proyecto son:
+Integrantes:
 Benny Javed Gomez,
 Duvan Andres Mora,
 Duvan Felipe Leon,
