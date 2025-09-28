@@ -1,5 +1,5 @@
 # 1.VIDEOJUEGOS BAJO LA LUPA:VENTAS CON PYTHON
-Informacion General 
+# Informacion General 
 Nombre De Los Estudiantes
   Duvan Andres Mora
   Benny Javed Gomez
