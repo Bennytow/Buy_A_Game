@@ -1,0 +1,6 @@
+# BostezoPragmatico
+Integrantes:
+Benny Javed Gomez,
+Duvan Andres Mora,
+Duvan Felipe Leon,
+Carlos Mazabel
