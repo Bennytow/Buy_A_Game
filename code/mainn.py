@@ -1,7 +1,7 @@
 #Esta funcion se encarga de organizar los datos de los juegos y subirlos a una lista separandolo por año, genero etc..
 def cargar_juegos(ruta_archivo:str)->list:
 #Organizacio del archivo csv
-#Rango,Nombre,Plataforma,Año,Genero,Editor,Na_ventas,EU_ventas,Jp_ventas,Otras_ventas
+#Rango,Nombre,Plataforma,Año,Genero,Puntuacion,Na_ventas,EU_ventas,Jp_ventas,Otras_ventas
 #Rank,Name,Platform,Year,Genre,Publisher,NA_Sales,EU_Sales,JP_Sales,Other_Sales,Global_Sales
     juegos=[]
     archivo=open(ruta_archivo,'r')
@@ -27,7 +27,7 @@ def cargar_juegos(ruta_archivo:str)->list:
                   'plataforma':plataforma,
                   'anio':anio,
                   'genero':genero,
-                  'editor':editor,
+                  'puntuacion':puntuacion,
                   'ventas_NA':ventas_NA,
                   'ventas_EU':ventas_EU,
                   'ventas_JP':ventas_JP,
