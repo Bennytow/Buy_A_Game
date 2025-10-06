@@ -24,4 +24,4 @@ Integrantes:
   -| `Publisher` | Empresa desarrolladora |
   -| `Year` | Año de lanzamiento |
   -| `Global_Sales` | Ventas totales en millones de unidades |
- ---
+ ----
