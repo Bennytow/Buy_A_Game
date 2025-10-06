@@ -6,8 +6,10 @@ Integrantes:
 - Duvan Felipe Leon
 - Carlos Mazabe
 ## prediccion de ventas de videojuegos
-- Este proyecto utiliza modelos de **Machine Learning** en **python** para predecir ventas futuras, el objetivo es identificar los factores de exito comercial de un juego
- ---
+- Este proyecto utiliza modelos de Machine Learning en Python para predecir las ventas futuras de videojuegos.
+El objetivo principal es identificar los factores clave que determinan el éxito comercial de un juego, considerando variables como género, plataforma, año de lanzamiento y la compañía desarrolladora.
+El programa permite analizar patrones históricos de ventas y generar predicciones confiables para nuevos títulos, ofreciendo información valiosa para desarrolladores, analistas de mercado y entusiastas de la industria de los videojuegos.
+---
 ## objetivo
 - Analizar las principales variables que determinan el rendimiento comercial de un videojuego.  
 - Entrenar un modelo predictivo que estime las ventas globales (`Global_Sales`).  
