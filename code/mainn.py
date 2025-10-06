@@ -22,7 +22,7 @@ def cargar_juegos(ruta_archivo:str)->list:
         ventas_JP=info[8]
         ventas_X=info[9]
         ventas_global=info[10]
-        l_juegos={'plataforma':plataforma,
+        l_juegos={'rango':rango,
                   'nombre':nombre,
                   'plataforma':plataforma,
                   'anio':anio,
