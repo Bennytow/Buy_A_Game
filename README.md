@@ -15,13 +15,13 @@ Integrantes:
 ## dataset
 -**Fuente:** [OpenDataBay](https://opendatabay.com/)  
 -**Formato:** CSV (`video_games_sales.csv`)
- - **Variables principales:**
-  | Variable | Descripción |
-  |-----------|-------------|
-  | `Name` | Nombre del videojuego |
-  | `Platform` | Consola o sistema (PS4, Xbox, PC, etc.) |
-  | `Genre` | Género del juego |
-  | `Publisher` | Empresa desarrolladora |
-  | `Year` | Año de lanzamiento |
-  | `Global_Sales` | Ventas totales en millones de unidades |
+**Variables principales:**
+  -| Variable | Descripción |
+  -|-----------|-------------|
+  -| `Name` | Nombre del videojuego |
+  -| `Platform` | Consola o sistema (PS4, Xbox, PC, etc.) |
+  -| `Genre` | Género del juego |
+  -| `Publisher` | Empresa desarrolladora |
+  -| `Year` | Año de lanzamiento |
+  -| `Global_Sales` | Ventas totales en millones de unidades |
  ---
