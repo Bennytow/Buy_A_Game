@@ -22,11 +22,17 @@ def cargar_juegos(ruta_archivo:str)->list:
         ventas_X=info[9]
         ventas_global=info[10]
         l_juegos={'plataforma':plataforma,
-                         'nombre':nombre,
-                         'plataforma':plataforma,
-                         'anio':anio,
-                         'genero':genero}
-        juegos.append(l_canciones)
+                  'nombre':nombre,
+                  'plataforma':plataforma,
+                  'anio':anio,
+                  'genero':genero,
+                  'editor':editor,
+                  'ventas_NA':ventas_NA,
+                  'ventas_EU':ventas_EU,
+                  'ventas_JP':ventas_JP,
+                  'ventas_X':ventas_X,
+                  'ventas_Global':ventas_global}
+        juegos.append(l_juegos)
         
         info=archivo.readline()
     archivo.close()
