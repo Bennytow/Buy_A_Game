@@ -16,10 +16,11 @@ def cargar_juegos(ruta_archivo:str)->list:
         anio=info[3]
         genero=info[4]
         editor=info[5]
-        ventas_NA=info
-        ventas_EU=info
-        ventas_JP=info
-        ventas_X=info
+        ventas_NA=info[6]
+        ventas_EU=info[7]
+        ventas_JP=info[8]
+        ventas_X=info[9]
+        ventas_global=info[10]
         l_juegos={'plataforma':plataforma,
                          'nombre':nombre,
                          'plataforma':plataforma,
