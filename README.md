@@ -1,4 +1,4 @@
-# titulo
+# titulo:
 ## *BostezoPragmatico*
 Integrantes:
 - Benny Javed Gomez
