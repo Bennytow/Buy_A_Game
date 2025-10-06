@@ -1,5 +1,5 @@
 # titulo
-* ## BostezoPragmatico *
+*## BostezoPragmatico*
 Integrantes:
 - Benny Javed Gomez
 - Duvan Andres Mora
