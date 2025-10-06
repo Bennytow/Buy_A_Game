@@ -1,4 +1,4 @@
-#Esta funcion se encarga de organizar los datos de los juegos y subirlos a una lista
+#Esta funcion se encarga de organizar los datos de los juegos y subirlos a una lista separandolo por año, genero etc..
 def cargar_juegos(ruta_archivo:str)->list:
 #Organizacio del archivo csv
 #Rank,Name,Platform,Year,Genre,Publisher,NA_Sales,EU_Sales,JP_Sales,Other_Sales,Global_Sales
@@ -37,3 +37,4 @@ def cargar_juegos(ruta_archivo:str)->list:
         info=archivo.readline()
     archivo.close()
     return juegos
+#De aqui en adelante hare aalgunas funciones para mostrar al usuario un poco de organizacion
