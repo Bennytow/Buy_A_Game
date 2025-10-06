@@ -19,7 +19,7 @@ Integrantes:
   -| Variable | Descripción |
   -|-----------|-------------|
   -| (Name) | Nombre del videojuego |
-  -| (Platform) | Consola o sistema (PS4, Xbox, PC, etc.) |
+  -| (Platform) | Consola o sistema  |
   -| (Genre) | Género del juego |
   -| (Publisher) | Empresa desarrolladora |
   -| (Year) | Año de lanzamiento |
