@@ -25,3 +25,6 @@ Integrantes:
   -| (Year) | Año de lanzamiento |
   -| (Global_Sales) | Ventas totales en millones de unidades |
  ----
+ ## Instalacion y ejecucion
+ -bash
+ -
