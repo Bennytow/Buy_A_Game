@@ -1,58 +1,54 @@
-# Importar las librerías necesarias
+# Importamos cosas para que funcione todo
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# Cargar el archivo CSV
+# Abrimos archivo de los juegos, que es como una caja llena de cosas
 def cargar_juegos(ruta_archivo: str):
-    df = pd.read_csv(ruta_archivo)
+    df = pd.read_csv(ruta_archivo)  # Leemos el archivo, mas o menos
     return df
 
-# Seleccionar solo las columnas que nos interesan: ventas_NA (para predecir) y ventas_global (lo que queremos predecir)
+# Seleccionamos lo que queremos de los datos, osea, lo importante
 def preparar_datos(df):
-    X = df[['NA_Sales']]  # Esta es nuestra característica (lo que usamos para predecir)
-    y = df['Global_Sales']  # Esta es nuestra etiqueta (lo que queremos predecir)
+    X = df[['NA_Sales']]  # Esto es lo que usamos pa' adivinar
+    y = df['Global_Sales']  # Esto es lo que queremos predecir
     return X, y
 
-# Crear el modelo de regresión lineal
+# Hacemos magia con un modelo de esos para que aprenda
 def crear_modelo(X, y):
-    modelo = LinearRegression()  # Usamos regresión lineal, que es muy sencillo
-    modelo.fit(X, y)  # Entrenamos el modelo con nuestros datos
+    modelo = LinearRegression()  # Es una linea, no tiene mucha ciencia
+    modelo.fit(X, y)  # Lo entrenamos y listo
     return modelo
 
-# Hacer predicciones con el modelo entrenado
+# Ahora hacemos que el modelo diga cosas
 def hacer_predicciones(modelo, X_test):
     return modelo.predict(X_test)
 
-# Evaluar el modelo
+# Vemos si el modelo acierta o se equivoca mucho
 def evaluar_modelo(y_test, y_pred):
-    # Evaluamos el modelo con el error cuadrado medio (es un tipo de medida que nos dice lo bien que está haciendo el modelo)
-    error = mean_squared_error(y_test, y_pred)
-    print(f"Error cuadrático medio: {error}")
+    error = mean_squared_error(y_test, y_pred)  # Calculamos el error, que se ve medio raro
+    print(f"Error cuadratico medio: {error}")  # Mostramos el numero raro
 
-# Función principal
+# Todo esto lo hacemos aqui
 def main():
-    # Cargar los datos
-    df = cargar_juegos('juegos.csv')  # Asegúrate de tener el archivo CSV con datos de juegos
+    df = cargar_juegos('juegos.csv')  # Abres el archivo que tienes por ahi
+    X, y = preparar_datos(df)  # Seleccionamos que usar para adivinar
     
-    # Preparar los datos (separamos las características y la etiqueta)
-    X, y = preparar_datos(df)
-
-    # Dividir los datos en dos partes: una para entrenar el modelo y otra para probarlo
+    # Partimos los datos en dos partes: una para entrenar y otra para probar
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    # Crear y entrenar el modelo
+    
+    # Creamos el modelo y lo entrenamos, asi de facil
     modelo = crear_modelo(X_train, y_train)
-
-    # Hacer predicciones sobre los datos de prueba
+    
+    # Le preguntamos al modelo sobre los datos que no vio
     y_pred = hacer_predicciones(modelo, X_test)
-
-    # Evaluar el modelo con las predicciones
+    
+    # Evaluamos si se equivoco mucho o poco
     evaluar_modelo(y_test, y_pred)
-
-    # Mostrar algunas predicciones
-    print(f"Primeras predicciones: {y_pred[:5]}")  # Mostrar las primeras 5 predicciones
+    
+    # Miramos unas predicciones pa' ver que tal
+    print(f"Primeras predicciones: {y_pred[:5]}")  # Vemos las primeras predicciones
 
 if __name__ == '__main__':
     main()
