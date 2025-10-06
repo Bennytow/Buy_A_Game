@@ -26,5 +26,14 @@ modelo = LogisticRegression()
 # Entrenar el modelo
 modelo.fit(X_train, y_train)
 
+# Evaluar el modelo
+y_pred = modelo.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy del modelo: {accuracy * 100:.2f}%")
+
+# Guardar el modelo entrenado
+joblib.dump(modelo, '../models/modelo_entrenado.pkl')
+
+
 
 
