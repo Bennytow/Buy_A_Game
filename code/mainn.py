@@ -15,7 +15,7 @@ def cargar_juegos(ruta_archivo:str)->list:
         plataforma=info[2]
         anio=info[3]
         genero=info[4]
-        
+        editor=info[5]
         l_juegos={'plataforma':plataforma,
                          'nombre':nombre,
                          'plataforma':plataforma,
