@@ -1,7 +1,7 @@
-#titulo
+# titulo
 ## BostezoPragmatico
 Integrantes:
--Benny Javed Gomez
--Duvan Andres Mora
-*Duvan Felipe Leon
-*Carlos Mazabe
+- Benny Javed Gomez
+- Duvan Andres Mora
+* Duvan Felipe Leon
+* Carlos Mazabe
