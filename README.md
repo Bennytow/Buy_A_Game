@@ -1,5 +1,5 @@
 # titulo:
-## *BostezoPragmatico*
+## *videojuegos bajo la lupa*
 Integrantes:
 - Benny Javed Gomez
 - Duvan Andres Mora
