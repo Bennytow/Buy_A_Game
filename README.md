@@ -42,3 +42,10 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
   -| (Year) | Año de lanzamiento |
   -| (Global_Sales) | Ventas totales en millones de unidades |
  ----
+
+ ## Futuras mejoras
+ * Incluir interfaz Grafica
+ * Hacer sistemas de Usuario (Login)
+ * Agregar Base de datos
+ * Mejorar sistema de carpetas
+ * Crear una pagina de inicio mas atractiva
