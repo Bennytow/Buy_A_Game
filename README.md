@@ -20,6 +20,7 @@ en este proyecto se verea reflejado la manera en como los videojuegos a lo largo
 |**Numpy**|trabaja con numeros, matrices y operaciones matematicas rapidas, es la base de la matematica en el machine learning (da promedios etc..)|
 |**Scikit-learn**|proporciona algoritmos de Machine Learning (regresiones, predicciones etc..) es la base del modelo predictivo de ventas|
 |**Matplotlib**|crea graficos y visualizaciones, muestra los resultados de la predicciones(ventas reales y estimadas)|
+|**Joblib**|Sirve para guardar y cargar objetos de Python como modelos de MAchine Learning|
 ## prediccion de ventas de videojuegos
 - Este proyecto utiliza modelos de Machine Learning en Python para predecir las ventas futuras de videojuegos.
 El objetivo principal es identificar los factores clave que determinan el éxito comercial de un juego, considerando variables como género, plataforma, año de lanzamiento y la compañía desarrolladora.
@@ -49,4 +50,4 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Agregar Base de datos
  * Mejorar sistema de carpetas
  * Crear una pagina de inicio mas atractiva
- 
+
