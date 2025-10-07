@@ -7,6 +7,12 @@ Integrantes:
 - Carlos Mazabel
 ## INTRODUCCION
 en este proyecto se verea reflejado la manera en como los videojuegos a lo largo de su recorrido temporal en distintas partes del mundo logran ventas de copias lo suficientemente grandes como para hacer crecer empresas, francquisias como rockstar, Nintendo, Activision o Gameloft son algunos ejemplos, pero, siempre fue asi? que parametros debe cumplir un juego para entrar en la lista de posibles exitos? todo esto se hara bajo un analisis profundo de datos los cuales nos serviran como guia para responder estas preguntas y muchas mas
+## Caracteristicas
+- Predice ventas de videojuegos usando Mahcine Learning
+- Se categoriza en datos como plataforma , genero y puntuacion de criticos
+- Permite comparar resultados reales contra predicciones
+- Entrenamiento y pruebas personalizables
+- Estructura modular para facil mantenimiento
 ## prediccion de ventas de videojuegos
 - Este proyecto utiliza modelos de Machine Learning en Python para predecir las ventas futuras de videojuegos.
 El objetivo principal es identificar los factores clave que determinan el éxito comercial de un juego, considerando variables como género, plataforma, año de lanzamiento y la compañía desarrolladora.
