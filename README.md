@@ -49,3 +49,4 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Agregar Base de datos
  * Mejorar sistema de carpetas
  * Crear una pagina de inicio mas atractiva
+ 
