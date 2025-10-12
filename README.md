@@ -49,5 +49,53 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Hacer sistemas de Usuario (Login.)
  * Agregar Base de datos.
  * Crear una pagina de inicio mas atractiva
+## Análisis de Ventas Globales de Videojuegos
+
+Esta carpeta contiene un análisis completo de las ventas globales de videojuegos, realizado con **Python**, **Pandas** y **Matplotlib**.  
+El propósito del estudio es identificar tendencias en la industria a lo largo de los años, los géneros más populares y las plataformas con mayores ventas acumuladas.
+
+El script principal es [`analisis_vgsales.py`](graficas/analisis_vgsales.py), el cual toma los datos del archivo [`vgsales.csv`](graficas/vgsales.csv), procesa la información y genera las siguientes gráficas:
+
+---
+
+### Ventas Globales por Año
+Representa la evolución de las ventas de videojuegos a nivel mundial a lo largo del tiempo.
+
+![Ventas Globales Por Año](graficas/Ventas%20Globales%20Por%20Año.png)
+
+---
+
+### Ventas Globales por Género
+Muestra qué tipos de videojuegos (acción, deportes, rol, etc.) registran mayores ventas globales.
+
+![Ventas Globales Por Genero](graficas/Ventas%20Globales%20Por%20Genero.png)
+
+---
+
+### Top 15 Plataformas con Mayores Ventas Globales
+Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales en la historia.
+
+![Top 15 Plataformas con Mayores Ventas Globales](graficas/Top%2015%20Plataformas%20con%20Mayores%20Ventas%20Globales.png)
+
+---
+
+### Herramientas utilizadas
+- **Python 3**
+- **Pandas** → para manejo y análisis de datos
+- **Matplotlib** → para creación de gráficos
+- **Google Colab / Visual Studio Code** → entorno de desarrollo
+
+---
+
+### Conclusiones generales
+- Las ventas globales presentan picos en determinados años, coincidiendo con el auge de consolas específicas.  
+- Los géneros de acción y deportes dominan el mercado.  
+- Las plataformas históricamente más exitosas en ventas han sido aquellas con una amplia base de usuarios y soporte de desarrolladores.
+
+---
+
+> Todos los resultados se encuentran dentro de la carpeta [`graficas/`](graficas/).  
+> Este análisis forma parte del proyecto colaborativo del grupo, enfocado en estudiar las tendencias del mercado global de videojuegos.
+
 
 
