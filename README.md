@@ -47,6 +47,5 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Incluir interfaz Grafica
  * Hacer sistemas de Usuario (Login)
  * Agregar Base de datos
- * Mejorar sistema de carpetas
  * Crear una pagina de inicio mas atractiva
 
