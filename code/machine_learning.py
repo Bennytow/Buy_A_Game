@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# Abrimos archivo de los juegos, que es como una caja llena de cosas
+# abrimos archivo de los juegos, que es como una caja llena de cosas
 def cargar_juegos(ruta_archivo: str):
     df = pd.read_csv(ruta_archivo)  # Leemos el archivo, mas o menos
     return df
