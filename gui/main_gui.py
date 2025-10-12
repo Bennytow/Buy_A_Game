@@ -70,7 +70,7 @@ tree["show"] = "headings"
 
 scrollbar.config(command=tree.yview)
 
-# Encabezados
+# encabezados para orden
 for col in df.columns:
     tree.heading(col, text=col)
     tree.column(col, width=100, anchor="center")  # Ajusta ancho
