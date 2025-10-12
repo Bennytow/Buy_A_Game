@@ -49,9 +49,5 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Hacer sistemas de Usuario (Login.)
  * Agregar Base de datos.
  * Crear una pagina de inicio mas atractiva
-## Gráficas de Ventas de Videojuegos
 
-![Ventas por año](graficas/ventas_por_año.png)
-![Ventas por género](graficas/ventas_por_genero.png)
-![Ventas por plataforma](graficas/ventas_por_plataforma.png)
 
