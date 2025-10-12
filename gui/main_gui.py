@@ -25,7 +25,7 @@ def filtrar_tabla():
     if genero != "Todos":
         df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
     
-    # Limpiar tabla
+    # limpiar tabla
     for i in tree.get_children():
         tree.delete(i)
     # Insertar filas filtradas
