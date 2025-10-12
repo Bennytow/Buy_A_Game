@@ -16,7 +16,7 @@ label.pack(pady=20)
 # -------------------
 # Leer dataset
 # -------------------
-df = pd.read_csv("../data/video_game_sales.csv")  # Ajusta la ruta según tu CSV
+df = pd.read_csv("../data/dataset/vgsales.csv")  
 
 # -------------------
 # Tabla para mostrar datos
