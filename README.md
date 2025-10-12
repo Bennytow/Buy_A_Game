@@ -61,21 +61,21 @@ El script principal es [`analisis_vgsales.py`](graficas/analisis_vgsales.py), el
 ### Ventas Globales por Año
 Representa la evolución de las ventas de videojuegos a nivel mundial a lo largo del tiempo.
 
-![Ventas Globales Por Año](graficas/Ventas%20Globales%20Por%20Año.png)
+![Ventas Globales Por Año](Graficas/Ventas%20Globales%20Por%20Año.png)
 
 ---
 
 ### Ventas Globales por Género
 Muestra qué tipos de videojuegos (acción, deportes, rol, etc.) registran mayores ventas globales.
 
-![Ventas Globales Por Genero](graficas/Ventas%20Globales%20Por%20Genero.png)
+![Ventas Globales Por Genero](Graficas/Ventas%20Globales%20Por%20Genero.png)
 
 ---
 
 ### Top 15 Plataformas con Mayores Ventas Globales
 Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales en la historia.
 
-![Top 15 Plataformas con Mayores Ventas Globales](graficas/Top%2015%20Plataformas%20con%20Mayores%20Ventas%20Globales.png)
+![Top 15 Plataformas con Mayores Ventas Globales](Graficas/Top%2015%20Plataformas%20con%20Mayores%20Ventas%20Globales.png)
 
 ---
 
@@ -94,7 +94,7 @@ Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales 
 
 ---
 
-> Todos los resultados se encuentran dentro de la carpeta [`graficas/`](graficas/).  
+> Todos los resultados se encuentran dentro de la carpeta [`graficas/`](Graficas/).  
 > Este análisis forma parte del proyecto colaborativo del grupo, enfocado en estudiar las tendencias del mercado global de videojuegos.
 
 
