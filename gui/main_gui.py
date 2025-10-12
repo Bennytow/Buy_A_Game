@@ -11,9 +11,7 @@ root.geometry("1000x600")  # Tamaño de la ventana
 label = tk.Label(root, text="Compraras un juego?, solo observa ;)", font=("Arial", 18))
 label.pack(pady=10)
 
-# -------------------
-# Leer dataset
-# -------------------
+#aqui se lee el dataset
 df = pd.read_csv("../data/dataset/vgsales.csv")  
 
 # -------------------
