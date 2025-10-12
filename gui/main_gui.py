@@ -14,9 +14,7 @@ label.pack(pady=10)
 #aqui se lee el dataset
 df = pd.read_csv("../data/dataset/vgsales.csv")  
 
-# -------------------
-# Funciones
-# -------------------
+#funciones principales
 def filtrar_tabla():
     plataforma = platform_var.get()
     genero = genre_var.get()
