@@ -75,7 +75,7 @@ for col in df.columns:
     tree.heading(col, text=col)
     tree.column(col, width=100, anchor="center")  # Ajusta ancho
 
-# Insertar datos
+# input datas
 for _, row in df.iterrows():
     tree.insert("", "end", values=list(row))
 
