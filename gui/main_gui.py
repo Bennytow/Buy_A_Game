@@ -81,7 +81,5 @@ for _, row in df.iterrows():
 
 tree.pack(expand=True, fill="both")
 
-# -------------------
-# Ejecutar ventana
-# -------------------
+#se ejecuta la ventana
 root.mainloop()
