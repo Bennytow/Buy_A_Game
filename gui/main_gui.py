@@ -7,7 +7,7 @@ root = tk.Tk()
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1000x600")  # Tamaño de la ventana
 
-# Etiqueta de bienvenida
+# etiqueta de bienvenida
 label = tk.Label(root, text="Compraras un juego?, solo observa ;)", font=("Arial", 18))
 label.pack(pady=10)
 
