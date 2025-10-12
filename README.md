@@ -1,7 +1,7 @@
 # *videojuegos bajo la lupa*
 Integrantes:
 - Benny Javed Gomez Ruiz
-- Duvan Andres Alarcon
+- Duvan Andres Alarcon Mora
 - Duvan Felipe Leon
 - Carlos Mazabel
 ## INTRODUCCION
