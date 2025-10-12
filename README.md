@@ -85,17 +85,3 @@ Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales 
 - **Matplotlib** → para creación de gráficos
 - **Google Colab / Visual Studio Code** → entorno de desarrollo
 
----
-
-### Conclusiones generales
-- Las ventas globales presentan picos en determinados años, coincidiendo con el auge de consolas específicas.  
-- Los géneros de acción y deportes dominan el mercado.  
-- Las plataformas históricamente más exitosas en ventas han sido aquellas con una amplia base de usuarios y soporte de desarrolladores.
-
----
-
-> Todos los resultados se encuentran dentro de la carpeta [`graficas/`](Graficas/).  
-> Este análisis forma parte del proyecto colaborativo del grupo, enfocado en estudiar las tendencias del mercado global de videojuegos.
-
-
-
