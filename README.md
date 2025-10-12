@@ -32,7 +32,7 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
 - Permitir ejecutar el modelo desde consola ingresando características del videojuego.
 ## dataset
 -**Fuente:** [OpenDataBay](https://opendatabay.com/)  
--**Formato:** CSV (video_games_sales.csv)
+-**Formato:** CSV (vgsales.csv)
 **Variables principales:**
   -| Variable | Descripción |
   -|-----------|-------------|
