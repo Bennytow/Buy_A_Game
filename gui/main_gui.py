@@ -18,7 +18,7 @@ df = pd.read_csv("../data/dataset/vgsales.csv")
 def filtrar_tabla():
     plataforma = platform_var.get()
     genero = genre_var.get()
-    # Filtrar dataframe
+    # filtrar dataframe
     df_filtrado = df.copy()
     if plataforma != "Todos":
         df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
