@@ -2,9 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import pandas as pd
 
-# -------------------
-# Ventana principal
-# -------------------
+#interfaz en ventana
 root = tk.Tk()
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1000x600")  # Tamaño de la ventana
