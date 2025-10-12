@@ -36,9 +36,7 @@ def mostrar_ventas_totales():
     total = df["Global_Sales"].sum()
     messagebox.showinfo("Ventas Globales Totales", f"${total:.2f} millones")
 
-# -------------------
-# Filtros
-# -------------------
+#filtros principales 
 frame_filtros = tk.Frame(root)
 frame_filtros.pack(pady=10)
 
