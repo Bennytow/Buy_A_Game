@@ -57,9 +57,7 @@ genre_menu.grid(row=0, column=3, padx=5)
 tk.Button(frame_filtros, text="Filtrar", command=filtrar_tabla).grid(row=0, column=4, padx=5)
 tk.Button(frame_filtros, text="Ventas Globales", command=mostrar_ventas_totales).grid(row=0, column=5, padx=5)
 
-# -------------------
-# Tabla con scroll
-# -------------------
+#posible scroll como el de tikitoko
 frame_tabla = tk.Frame(root)
 frame_tabla.pack(expand=True, fill="both")
 
