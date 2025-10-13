@@ -1,4 +1,4 @@
-#Utilisaremos joblib para el modelo
+#Utilizaremos joblib para el modelo
 import joblib
 modelo = joblib.load('../models/modelo_entrenado.pkl')
 #Funcion para hacer predicciones
