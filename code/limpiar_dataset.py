@@ -21,14 +21,12 @@ print("\nNúmero de filas duplicadas:", duplicados)
 datos_limpios = datos_originales.copy()
 #Aqui elimine valores duplicados
 datos_limpios = datos_limpios.drop_duplicates()
-print("\n🧩 Se eliminaron las filas duplicadas.")
 
-# 3.2 Eliminar filas sin nombre
+# Elimine filas sin noombre :v
 datos_limpios = datos_limpios[~datos_limpios['Name'].isna()]
 datos_limpios = datos_limpios[datos_limpios['Name'].str.strip() != ""]
-print("🎮 Se eliminaron las filas sin nombre de juego.")
 
-# 3.3 Limpiar la columna Year (Año)
+# Si aparece aalgun error con el año lo elimina
 datos_limpios['Year'] = pd.to_numeric(datos_limpios['Year'], errors='coerce')
 print("Antes de limpiar, valores nulos en 'Year':", datos_limpios['Year'].isna().sum())
 
