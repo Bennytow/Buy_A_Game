@@ -1,4 +1,4 @@
-#Esta vez las librerias son pandas
+#Use pandas para limpiar el dataset
 import pandas as pd
 import numpy as np
 import os
