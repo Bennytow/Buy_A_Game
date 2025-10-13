@@ -1,8 +1,8 @@
 #ANALISIS DE VENTAS DE VIDEOJUEGOS
 
 #Importar librerías necesarias
-import pandas as pd
-import matplotlib.pyplot as plt
+import pandas as pd #libreria para manipulacion de datos
+import matplotlib.pyplot as plt #subbiblioteca "pyplot" para generar graficas
 
 #Cargar el archivo CSV
 data = pd.read_csv("vgsales.csv")
