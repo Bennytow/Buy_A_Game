@@ -81,7 +81,7 @@ Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales 
 
 ### Herramientas utilizadas
 - **Python 3**
-- **Pandas** → para manejo y análisis de datos
-- **Matplotlib** → para creación de gráficos
-- **Google Colab / Visual Studio Code** → entorno de desarrollo
+- **Pandas** para manejo y análisis de datos
+- **Matplotlib**  creación de gráficos
+- **Google Colab / Visual Studio Code** entorno de desarrollo
 
