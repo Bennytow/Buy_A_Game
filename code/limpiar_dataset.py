@@ -45,9 +45,9 @@ columnas_texto = ['Platform', 'Genre', 'Publisher']
 for columna in columnas_texto:
     datos_limpios[columna] = datos_limpios[columna].astype(str).str.strip()
 
-# 3.5 Convertir Global_Sales a número
+# Convierte las ventas globales a entero
 datos_limpios['Global_Sales'] = pd.to_numeric(datos_limpios['Global_Sales'], errors='coerce').fillna(0)
-print("\n✅ Validación final del dataset limpio:\n")
+print("Validacion de datos")
 print("Filas finales:", len(datos_limpios))
 print("Duplicados después de limpiar:", datos_limpios.duplicated().sum())
 print("Valores nulos restantes:\n", datos_limpios.isna().sum())
@@ -60,7 +60,7 @@ filas_originales = len(datos_originales)
 filas_finales = len(datos_limpios)
 
 reporte_limpieza = f"""
-# 🧹 Reporte de Limpieza del Dataset
+# Reporte de Limpieza del Dataset
 
 **Archivo original:** data/vgsales.csv  
 **Archivo limpio:** data/clean/vgsales_limpio.csv
