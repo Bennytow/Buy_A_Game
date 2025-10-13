@@ -5,7 +5,7 @@ import pandas as pd #libreria para manipulacion de datos
 import matplotlib.pyplot as plt #subbiblioteca "pyplot" para generar graficas
 
 #Cargar el archivo CSV
-data = pd.read_csv("vgsales.csv")
+data = pd.read_csv("vgsales.csv")#funcion de pandas para devolver una tabla
 
 #Mostrar las primeras filas para verificar
 print("Vista previa de los datos:")
