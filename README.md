@@ -51,7 +51,7 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Crear una pagina de inicio mas atractiva
 ## Análisis de Ventas Globales de Videojuegos
 
-Esta carpeta contiene un análisis completo de las ventas globales de videojuegos, realizado con **Python**, **Pandas** y **Matplotlib**.  
+Esta carpeta contiene un analisis completo de las ventas globales de videojuegos, realizado con **Python**, **Pandas** y **Matplotlib**.  
 El propósito del estudio es identificar tendencias en la industria a lo largo de los años, los géneros más populares y las plataformas con mayores ventas acumuladas.
 
 El script principal es [`analisis_vgsales.py`](Graficas/analisis_vgsales.py), el cual toma los datos del archivo [`vgsales.csv`](Graficas/vgsales.csv), procesa la información y genera las siguientes gráficas:
