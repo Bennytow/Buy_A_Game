@@ -6,8 +6,7 @@ import os
 os.makedirs("data/clean", exist_ok=True)
 
 # Guardar la ruta del archivo original
-ruta_archivo = "data/vgsales.csv"
-
+ruta_archivo = input("Por favor ingrese el nombre del archivo CSV con los juegos: ")
 # Leer datos
 datos_originales = pd.read_csv(ruta_archivo, encoding="utf-8")
 # Cuenta los valores nulos y los muestra en pantalla
