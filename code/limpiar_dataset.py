@@ -36,38 +36,26 @@ datos_limpios = datos_limpios.dropna(subset=['Year'])
 # Convertir los años a enteros
 datos_limpios['Year'] = datos_limpios['Year'].astype(int)
 
-# Filtrar años dentro de un rango lógico
+# Filtrar años (Lo filtre en un rango para que haya juegos mas o menos actualizados)
 datos_limpios = datos_limpios[(datos_limpios['Year'] >= 1970) & (datos_limpios['Year'] <= 2025)]
-print("📅 Se corrigieron los años inválidos.")
+#Rango de 1970 a 2025
 
-# 3.4 Limpiar columnas de texto
+# Limpiar columna de texto
 columnas_texto = ['Platform', 'Genre', 'Publisher']
 for columna in columnas_texto:
     datos_limpios[columna] = datos_limpios[columna].astype(str).str.strip()
-print("🧾 Se limpiaron las columnas de texto (espacios eliminados).")
 
 # 3.5 Convertir Global_Sales a número
 datos_limpios['Global_Sales'] = pd.to_numeric(datos_limpios['Global_Sales'], errors='coerce').fillna(0)
-print("💰 Se convirtieron los valores de ventas a números.")
-
-# ===============================================================
-# 4️⃣ VALIDACIÓN FINAL
-# ===============================================================
 print("\n✅ Validación final del dataset limpio:\n")
 print("Filas finales:", len(datos_limpios))
 print("Duplicados después de limpiar:", datos_limpios.duplicated().sum())
 print("Valores nulos restantes:\n", datos_limpios.isna().sum())
-
-# ===============================================================
-# 5️⃣ GUARDAR EL NUEVO DATASET
-# ===============================================================
+#Guardar el datsaset ya limpio
 ruta_salida = "data/clean/vgsales_limpio.csv"
 datos_limpios.to_csv(ruta_salida, index=False, encoding="utf-8")
-print(f"\n📁 Archivo limpio guardado en: {ruta_salida}")
-
-# ===============================================================
-# 6️⃣ CREAR UN REPORTE DE LIMPIEZA
-# ===============================================================
+print(f"\nArchivo limpio guardado en: {ruta_salida}")
+#Reporte
 filas_originales = len(datos_originales)
 filas_finales = len(datos_limpios)
 
@@ -92,6 +80,3 @@ reporte_limpieza = f"""
 
 with open("data/clean/README_limpieza.md", "w", encoding="utf-8") as archivo_reporte:
     archivo_reporte.write(reporte_limpieza)
-
-print("\n📝 Reporte de limpieza creado correctamente en data/clean/README_limpieza.md")
-print("\n🚀 Proceso completado con éxito.")
