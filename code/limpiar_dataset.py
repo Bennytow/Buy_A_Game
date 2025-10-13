@@ -4,7 +4,7 @@ import numpy as np
 import os
 # Crear nueva carpeta para el dataset ya organizado
 os.makedirs("data/clean", exist_ok=True)
-
+ 
 # Guardar la ruta del archivo original
 ruta_archivo = input("Por favor ingrese el nombre del archivo CSV con los juegos: ")
 # Leer datos
