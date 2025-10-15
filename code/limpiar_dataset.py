@@ -3,7 +3,7 @@ import pandas as pd#manipulacion de datos
 import numpy as np#operaciones numericas
 import os
 # Crear nueva carpeta para el dataset ya organizado
-os.makedirs("data/clean", exist_ok=True)
+os.makedirs("data/clean", exist_ok=True)#crear carpeta
  
 # Guardar la ruta del archivo original
 ruta_archivo = input("Por favor ingrese el nombre del archivo CSV con los juegos: ")
