@@ -6,7 +6,7 @@ Integrantes:
 - Duvan Felipe Leon Vallejo
 - Carlos Mario Mazabel Mora
 ## INTRODUCCIÓN
-En este proyecto veremos la manera en que los videojuegos a lo largo de su historia han logrado grandes exitos, esto no solo a nivel local o nacional, lo vemos reflejado alrededor del mundo, hoy en día es muy complicado que alguien no conozca el termino vid3eojuego, gracias a ello han emergido empresas o franquicias como: Rockstar, Nintendo, Activision o Gameloft, sin embargo, siempre fue asi? que parametros debe cumplir un juego para entrar en la lista de posibles exitos? todo esto se hara bajo un analisis profundo de datos los cuales nos serviran como guia para responder estas preguntas y muchas mas
+En este proyecto veremos la manera en que los videojuegos a lo largo de su historia han logrado grandes exitos, esto no solo a nivel local o nacional, lo vemos reflejado alrededor del mundo, hoy en día es muy complicado que alguien no conozca el termino videojuego, gracias a ello han emergido empresas o franquicias como: Rockstar, Nintendo, Activision o Gameloft, sin embargo, ¿Siempre fue asi? ¿Que parámetros debe cumplir un juego para entrar en la lista de posibles exitos? Todo esto se hara bajo un analisis profundo de datos los cuales nos serviran como guia para responder estas preguntas y muchas más.
 ## Caracteristicas
 - Predice ventas de videojuegos usando Mahcine Learning
 - Se categoriza en datos como plataforma , genero y puntuacion de criticos
