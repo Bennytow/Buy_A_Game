@@ -1,5 +1,5 @@
 # Buy A Game
-## *videojuegos bajo la lupa* 
+## *Videojuegos bajo la lupa* 
 Integrantes:
 - Benny Javed Gomez Ruiz
 - Duvan Andres Alarcon Mora
@@ -16,11 +16,11 @@ En este proyecto veremos la manera en que los videojuegos a lo largo de su histo
 ## Librerias Usadas
 |Libreria|Descripcion|
 |--------|-----------|
-|**Pandas**|maneja y analiza datos en forma de tablas (hojas de exel o archivos csv) limpia los datos y los ordena facilmente|
-|**Numpy**|trabaja con numeros, matrices y operaciones matematicas rapidas, es la base de la matematica en el machine learning (da promedios etc..)|
-|**Scikit-learn**|proporciona algoritmos de Machine Learning (regresiones, predicciones etc..) es la base del modelo predictivo de ventas|
-|**Matplotlib**|crea graficos y visualizaciones, muestra los resultados de la predicciones(ventas reales y estimadas)|
-|**Joblib**|Sirve para guardar y cargar objetos de Python como modelos de MAchine Learning|
+|**Pandas**|  Maneja y analiza datos en forma de tablas (hojas de exel o archivos csv) limpia los datos y los ordena facilmente|
+|**Numpy**|  Trabaja con numeros, matrices y operaciones matematicas rapidas, es la base de la matematica en el machine learning (da promedios etc..)|
+|**Scikit-learn**|  Proporciona algoritmos de Machine Learning (regresiones, predicciones etc..) es la base del modelo predictivo de ventas|
+|**Matplotlib**|  Crea graficos y visualizaciones, muestra los resultados de la predicciones(ventas reales y estimadas)|
+|**Joblib**|  Sirve para guardar y cargar objetos de Python como modelos de MAchine Learning|
 ## prediccion de ventas de videojuegos
 - Este proyecto utiliza modelos de Machine Learning en Python para predecir las ventas futuras de videojuegos.
 El objetivo principal es identificar los factores clave que determinan el éxito comercial de un juego, considerando variables como género, plataforma, año de lanzamiento y la compañía desarrolladora.
@@ -51,7 +51,7 @@ El programa permite analizar patrones históricos de ventas y generar prediccion
  * Crear una pagina de inicio mas atractiva
 ## Análisis de Ventas Globales de Videojuegos
 
-Esta carpeta contiene un analisis completo de las ventas globales de videojuegos, realizado con **Python**, **Pandas** y **Matplotlib**.  
+  Esta carpeta contiene un analisis completo de las ventas globales de videojuegos, realizado con **Python**, **Pandas** y **Matplotlib**.  
 El propósito del estudio es identificar tendencias en la industria a lo largo de los años, los géneros más populares y las plataformas con mayores ventas acumuladas.
 
 El script principal es [`analisis_vgsales.py`](Graficas/analisis_vgsales.py), el cual toma los datos del archivo [`vgsales.csv`](Graficas/vgsales.csv), procesa la información y genera las siguientes gráficas:
@@ -59,7 +59,7 @@ El script principal es [`analisis_vgsales.py`](Graficas/analisis_vgsales.py), el
 ---
 
 ### Ventas Globales por Año
-Representa la evolución de las ventas de videojuegos a nivel mundial a lo largo del tiempo.
+  Representa la evolución de las ventas de videojuegos a nivel mundial a lo largo del tiempo.
 
 ![Ventas Globales Por Año](Graficas/Ventas%20Globales%20Por%20Año.png)
 
@@ -81,7 +81,7 @@ Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales 
 # Entrenamiento del Modelo de Predicción de Ventas
 
 ## Objetivo
-Entrenar un modelo de **Regresión Lineal** que prediga las ventas globales de videojuegos (`Global_Sales`)
+  Entrenar un modelo de **Regresión Lineal** que prediga las ventas globales de videojuegos (`Global_Sales`)
 en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Other_Sales`).
 
 ---
