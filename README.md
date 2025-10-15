@@ -5,7 +5,7 @@ Integrantes:
 - Duvan Andres Alarcon Mora
 - Duvan Felipe Leon Vallejo
 - Carlos Mario Mazabel Mora
-## INTRODUCCION
+## INTRODUCCIÓN
 En este proyecto veremos la manera en que los videojuegos a lo largo de su historia han logrado grandes exitos, esto no solo a nivel local o nacional, lo vemos reflejado alrededor del mundo, hoy en día es muy complicado que alguien no conozca el termino vid3eojuego, gracias a ello han emergido empresas o franquicias como: Rockstar, Nintendo, Activision o Gameloft, sin embargo, siempre fue asi? que parametros debe cumplir un juego para entrar en la lista de posibles exitos? todo esto se hara bajo un analisis profundo de datos los cuales nos serviran como guia para responder estas preguntas y muchas mas
 ## Caracteristicas
 - Predice ventas de videojuegos usando Mahcine Learning
@@ -21,16 +21,16 @@ En este proyecto veremos la manera en que los videojuegos a lo largo de su histo
 |**Scikit-learn**|  Proporciona algoritmos de Machine Learning (regresiones, predicciones etc..) es la base del modelo predictivo de ventas|
 |**Matplotlib**|  Crea graficos y visualizaciones, muestra los resultados de la predicciones(ventas reales y estimadas)|
 |**Joblib**|  Sirve para guardar y cargar objetos de Python como modelos de MAchine Learning|
-## prediccion de ventas de videojuegos
+## Predicción de ventas de videojuegos
 - Este proyecto utiliza modelos de Machine Learning en Python para predecir las ventas futuras de videojuegos.
 El objetivo principal es identificar los factores clave que determinan el éxito comercial de un juego, considerando variables como género, plataforma, año de lanzamiento y la compañía desarrolladora.
 El programa permite analizar patrones históricos de ventas y generar predicciones confiables para nuevos títulos, ofreciendo información valiosa para desarrolladores, analistas de mercado y entusiastas de la industria de los videojuegos.
 ---
-## objetivo
+## Objetivo
 - Analizar las principales variables que determinan el rendimiento comercial de un videojuego.  
 - Entrenar un modelo predictivo que estime las ventas globales (`Global_Sales`).  
 - Permitir ejecutar el modelo desde consola ingresando características del videojuego.
-## dataset
+## Dataset
 -**Fuente:** [OpenDataBay](https://opendatabay.com/)  
 -**Formato:** CSV (vgsales.csv)
 **Variables principales:**
