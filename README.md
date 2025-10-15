@@ -110,3 +110,5 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 - **Matplotlib**  creación de gráficos
 - **Google Colab / Visual Studio Code** entorno de desarrollo
 
+  ##
+
