@@ -3,11 +3,11 @@ import csv
 def cargar_juegos(ruta_archivo: str) -> list:
     juegos = []
     
-    # Abriendo el archivo CSV y leyendo su contenido
+    # Abre el archivo csv y lee el contenido
     with open(ruta_archivo, 'r', newline='', encoding='utf-8') as archivo:
-        lector = csv.DictReader(archivo)  # Esto automáticamente usa las cabeceras del archivo como claves
+        lector = csv.DictReader(archivo)  # Muestra los titulos
 
-        # Iteramos sobre cada fila del archivo CSV
+        # Iteramos sobre cada fila del archivo
         for fila in lector:
             # Convertimos las ventas a valores numéricos (float) si no están vacías, si están vacías se asigna 0
             ventas_NA = float(fila['NA_Sales']) if fila['NA_Sales'] else 0.0
@@ -32,5 +32,5 @@ def cargar_juegos(ruta_archivo: str) -> list:
             
             # Añadimos el juego a la lista de juegos
             juegos.append(l_juego)
-    
+    #Retornamos la lista de juegos
     return juegos
