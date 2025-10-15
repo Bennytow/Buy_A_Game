@@ -113,4 +113,4 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 ---
 
 ## Bibliografia
-
+https://youtu.be/jwA1Efuq48Q?si=9a6CqzM_vaVyyLoV 
