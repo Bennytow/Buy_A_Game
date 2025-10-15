@@ -1,15 +1,7 @@
-"""
-Uso:
-    python billboard.py --input data/raw/vgsales.csv --output data/clean/vgsales_limpio.csv
-    python billboard.py                      # Pedirá interactivo el nombre/ruta del CSV si no existe
-
-Descripción:
-    Script para limpiar el dataset vgsales. Si no se pasa --input o el archivo no existe,
-    el programa preguntará interactivamente por la ruta del CSV. Los nombres de variables
-    y ejemplos están alineados con tus scripts anteriores: `ruta_archivo`, `ruta_salida`,
-    `datos_originales`, `datos_limpios`.
-"""
-
+#Descripción:
+#Script para limpiar el dataset vgsales. Si no se pasa --input o el archivo no existe, 
+#el programa preguntará interactivamente por la ruta del CSV.
+#Importamos librerias
 from pathlib import Path
 import pandas as pd
 import argparse
@@ -29,13 +21,6 @@ def parse_args():
     return parser.parse_args()
 
 def safe_read_csv(path: Path) -> pd.DataFrame:
-    """Leer CSV de forma segura intentando varias codificaciones.
-
-    Parámetros:
-        path: Path a leer
-    Devuelve:
-        DataFrame con los datos
-    """
     # Intenta leer con utf-8 y si falla intenta latin1
     try:
         return pd.read_csv(path)
@@ -173,7 +158,7 @@ def main():
     report_file = save_report(ruta_salida.parent, estadisticas, datos_antes)
     print(f"Reporte de limpieza guardado en: {report_file}")
 
-    # Mensaje final
+    # eporte resumido
     print("=== RESUMEN FINAL ===")
     for k, v in estadisticas.items():
         print(f"{k}: {v}")
