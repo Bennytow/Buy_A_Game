@@ -1,5 +1,5 @@
 import csv
-
+#Definimos una funcion para crear una lista con los juegos
 def cargar_juegos(ruta_archivo: str) -> list:
     juegos = []
     
@@ -15,7 +15,6 @@ def cargar_juegos(ruta_archivo: str) -> list:
             ventas_JP = float(fila['JP_Sales']) if fila['JP_Sales'] else 0.0
             ventas_X = float(fila['Other_Sales']) if fila['Other_Sales'] else 0.0
             ventas_global = float(fila['Global_Sales']) if fila['Global_Sales'] else 0.0
-
             # Creamos el diccionario para este juego
             l_juego = {
                 'nombre': fila['Name'],
