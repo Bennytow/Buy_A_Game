@@ -29,7 +29,7 @@ plt.tight_layout()
 plt.show()
 
 #GRÁFICA: Ventas por Género
-ventas_por_genero = data.groupby('Genre')['Global_Sales'].sum().sort_values(ascending=False)
+ventas_por_genero = data.groupby('Genre')['Global_Sales'].sum().sort_values(ascending=False) #sort_values(ascending=false) sive para ordenar los generos 0ocn mas ventas de primero
 
 plt.figure(figsize=(10, 5))
 ventas_por_genero.plot(kind='bar', color='orange')
