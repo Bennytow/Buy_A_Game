@@ -1,6 +1,6 @@
 #Use pandas para limpiar el dataset
 import pandas as pd#manipulacion de datos
-import numpy as np
+import numpy as np#operaciones numericas
 import os
 # Crear nueva carpeta para el dataset ya organizado
 os.makedirs("data/clean", exist_ok=True)
