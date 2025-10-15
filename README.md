@@ -78,6 +78,31 @@ Presenta las 15 plataformas de videojuegos con mayor volumen de ventas globales 
 ![Top 15 Plataformas con Mayores Ventas Globales](Graficas/Top%2015%20Plataformas%20con%20Mayores%20Ventas%20Globales.png)
 
 ---
+# Entrenamiento del Modelo de Predicción de Ventas
+
+## Objetivo
+Entrenar un modelo de **Regresión Lineal** que prediga las ventas globales de videojuegos (`Global_Sales`)
+en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Other_Sales`).
+
+---
+
+## Proceso
+
+1. **Carga del dataset limpio:**
+   - Se utiliza el archivo `data/clean/vgsales_limpio.csv`.
+   - Contiene las columnas necesarias sin valores nulos ni duplicados.
+
+2. **Preparación de datos:**
+   - Variables independientes: ventas por región.
+   - Variable dependiente: ventas globales.
+
+3. **División de datos:**
+   - 80% de los datos se usa para entrenar el modelo.
+   - 20% se reserva para probar la precisión del modelo.
+
+4. **Entrenamiento:**
+   - Se
+
 
 ### Herramientas utilizadas
 - **Python 3**
