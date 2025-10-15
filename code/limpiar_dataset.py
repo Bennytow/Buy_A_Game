@@ -1,11 +1,7 @@
-#!/usr/bin/env python3
 """
-code/limpiar_dataset.py
-Versión robusta del limpiador de vgsales.csv
-
 Uso:
     python code/limpiar_dataset.py --input data/raw/vgsales.csv --output data/clean/vgsales_limpio.csv
-Si no se pasa input, usa 'data/raw/vgsales.csv' por defecto.
+Si no se pasa input, usa 'data/raw/vgsales.csv' por defecto.  (Ruta del archivo)
 """
 
 from pathlib import Path
