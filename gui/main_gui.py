@@ -2,41 +2,50 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import pandas as pd
 
-#interfaz en ventana
+# Interfaz en ventana
 root = tk.Tk()
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1000x600")  # Tamaño de la ventana
 
-# etiqueta de bienvenida
-label = tk.Label(root, text="Compraras un juego?, solo observa ;)", font=("Arial", 18))
+# Etiqueta de bienvenida
+label = tk.Label(root, text="¿Comprarás un juego? Solo observa ;)", font=("Arial", 18))
 label.pack(pady=10)
 
-#aqui se lee el dataset
-df = pd.read_csv("../data/dataset/vgsales.csv")  
+# Cargar el dataset
+df = pd.read_csv("../data/dataset/vgsales.csv")
 
-#funciones principales
-def filtrar_tabla():
+# Función para obtener el DataFrame filtrado
+def obtener_df_filtrado():
+    """Devuelve un DataFrame filtrado según la plataforma y género seleccionados."""
     plataforma = platform_var.get()
     genero = genre_var.get()
-    # filtrar dataframe
     df_filtrado = df.copy()
     if plataforma != "Todos":
         df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
     if genero != "Todos":
         df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
-    
-    # limpiar tabla
+    return df_filtrado
+
+# Función para filtrar y mostrar la tabla
+def filtrar_tabla():
+    df_filtrado = obtener_df_filtrado()
+    # Limpiar tabla
     for i in tree.get_children():
         tree.delete(i)
     # Insertar filas filtradas
     for _, row in df_filtrado.iterrows():
         tree.insert("", "end", values=list(row))
 
+# Función para mostrar ventas globales totales según los filtros
 def mostrar_ventas_totales():
-    total = df["Global_Sales"].sum()
-    messagebox.showinfo("Ventas Globales Totales", f"${total:.2f} millones")
+    df_filtrado = obtener_df_filtrado()
+    total = df_filtrado["Global_Sales"].sum()
+    messagebox.showinfo(
+        "Ventas Globales (filtradas)",
+        f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
+    )
 
-#filtros principales 
+# Filtros principales
 frame_filtros = tk.Frame(root)
 frame_filtros.pack(pady=10)
 
@@ -57,7 +66,7 @@ genre_menu.grid(row=0, column=3, padx=5)
 tk.Button(frame_filtros, text="Filtrar", command=filtrar_tabla).grid(row=0, column=4, padx=5)
 tk.Button(frame_filtros, text="Ventas Globales", command=mostrar_ventas_totales).grid(row=0, column=5, padx=5)
 
-#posible scroll como el de tikitoko
+# Tabla con scroll
 frame_tabla = tk.Frame(root)
 frame_tabla.pack(expand=True, fill="both")
 
@@ -70,16 +79,17 @@ tree["show"] = "headings"
 
 scrollbar.config(command=tree.yview)
 
-# encabezados para orden
+# Encabezados para orden
 for col in df.columns:
     tree.heading(col, text=col)
     tree.column(col, width=100, anchor="center")  # Ajusta ancho
 
-# input datas
+# Insertar datos iniciales
 for _, row in df.iterrows():
     tree.insert("", "end", values=list(row))
 
 tree.pack(expand=True, fill="both")
 
-#se ejecuta la ventana
+# Ejecutar la ventana
 root.mainloop()
+
