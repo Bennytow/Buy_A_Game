@@ -5,7 +5,7 @@ import pandas as pd
 # Interfaz en ventana
 root = tk.Tk()
 root.title("Videojuegos Bajo Lupa")
-root.geometry("1000x600")  # Tamaño de la ventana
+root.geometry("1920x1080")  # Tamaño de la ventana
 
 # Etiqueta de bienvenida
 label = tk.Label(root, text="¿Comprarás un juego? Solo observa ;)", font=("Arial", 18))
