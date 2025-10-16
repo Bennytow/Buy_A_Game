@@ -113,5 +113,5 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 ---
 
 ## Bibliografia
-* https://youtu.be/jwA1Efuq48Q?si=9a6CqzM_vaVyyLoV (explicacion de tkinter (libreria))
+* https://youtube.com/playlist?list=PL7HAy5R0ehQXb2aFKOKyeCMequxyb5jzJ&si=hnI6TGuzGHxyOLrG (explicacion de tkinter (libreria))
 * https://youtube.com/playlist?list=PLg9145ptuAij_8zYgMeqwOV8ABwRYLuR3&si=jfRHMPP70IqYzsBJ (como usar numpy & pandas (libreria))
