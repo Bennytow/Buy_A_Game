@@ -4,7 +4,30 @@ import pandas as pd
 
 # Interfaz en ventana
 root = tk.Tk()
-root.configure(bg="#b30000")
+# Estilo general
+root.configure(bg="#1e1e1e")
+
+style = ttk.Style()
+style.theme_use("default")
+
+style.configure("Treeview",
+    background="#2b2b2b",
+    foreground="white",
+    fieldbackground="#2b2b2b",
+    rowheight=25,
+    font=("Arial", 10)
+)
+
+style.configure("Treeview.Heading",
+    background="#0078d7",
+    foreground="white",
+    font=("Arial", 10, "bold")
+)
+
+style.map("Treeview",
+    background=[("selected", "#005fa3")]
+)
+
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1920x1080")  # Tamaño de la ventana
 
