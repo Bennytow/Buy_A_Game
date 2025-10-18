@@ -4,6 +4,7 @@ import pandas as pd
 
 # Interfaz en ventana
 root = tk.Tk()
+root.configure(bg="#b30000")
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1920x1080")  # Tamaño de la ventana
 
