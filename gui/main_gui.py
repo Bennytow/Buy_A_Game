@@ -15,13 +15,13 @@ style.configure("Treeview",
     foreground="white",
     fieldbackground="#2b2b2b",
     rowheight=25,
-    font=("Arial", 10)
+    font=("Times New Roman", 10)
 )
 
 style.configure("Treeview.Heading",
     background="#0078d7",
     foreground="white",
-    font=("Arial", 10, "bold")
+    font=("Times New Roman", 10, "bold")
 )
 
 style.map("Treeview",
@@ -32,7 +32,7 @@ root.title("Videojuegos Bajo Lupa")
 root.geometry("1920x1080")  # Tamaño de la ventana
 
 # Etiqueta de bienvenida
-label = tk.Label(root, text="¿Comprarás un juego? Solo observa ;)", font=("Arial", 18))
+label = tk.Label(root, text="¿Comprarás un juego? Solo observa ;)", font=("Times New Roman", 18))
 label.pack(pady=10)
 
 # Cargar el dataset
