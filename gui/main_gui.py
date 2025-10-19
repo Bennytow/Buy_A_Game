@@ -87,6 +87,8 @@ def mostrar_ventas_totales():
         "Ventas Globales (filtradas)",
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
+def predecir_tilin():
+    messagebox.showinfo("hoholaa")
 
 # Filtros principales
 frame_filtros = tk.Frame(root)
@@ -109,6 +111,8 @@ genre_menu.grid(row=0, column=3, padx=8)
 ttk.Button(frame_filtros, text=" Filtrar", command=filtrar_tabla).grid(row=0, column=4, padx=10)
 ttk.Button(frame_filtros, text=" Ventas Globales", command=mostrar_ventas_totales).grid(row=0, column=5, padx=10)
 
+boton = tk.Button(root, text=("Presioname"), command=predecir_tilin)
+boton.pack(pady=20)
 
 # Tabla con scroll
 frame_tabla = tk.Frame(root)
