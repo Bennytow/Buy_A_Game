@@ -88,7 +88,7 @@ def mostrar_ventas_totales():
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
 def predecir_tilin():
-    ventana_pred = tkToplevel(root)
+    ventana_pred = tk.Toplevel(root)
     ventana_pred.title("Prediccion de tu videojuego")
     ventana_pred.geometry("400x300")
     ventana_pred.configure(bg=BACKGROUND)
