@@ -103,7 +103,7 @@ def predecir_tilin():
     genre_menu_pred.pack(pady=5)
 
     tk.Label(ventana_pred, text="Plataforma:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
-    platform_menu_pred = ttk.Combobox(ventana_pred, textvariable=plataforma_pred,values=plataform_options, state="readonly", width=25)
+    platform_menu_pred = ttk.Combobox(ventana_pred, textvariable=plataforma_pred, values=platform_options, state="readonly", width=25)
     platform_menu_pred.pack(pady=5)
 
     ttk.Button(ventana_pred, text="Predecir", command=lambda: messagebox.showinfo("Predicción", f"Género: {genero_pred.get()}\nPlataforma: {plataforma_pred.get()}")).pack(pady=15)
