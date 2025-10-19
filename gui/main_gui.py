@@ -88,8 +88,27 @@ def mostrar_ventas_totales():
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
 def predecir_tilin():
-    mensaje = "Ventana de prediccion"
-    messagebox.showinfo("Prediccion de tu videojuego", mensaje)
+    ventana_pred = tkToplevel(root)
+    ventana_pred.title("Prediccion de tu videojuego")
+    ventana_pred.geometry("400x300")
+    ventana_pred.configure(bg=BACKGROUND)
+
+    tk.Label(ventana_pred, text="Ingresa los datos de tu videojuego", bg=BACKGROUND, fg=PRIMARY_COLOR, font=("Segoe UI semibold", 14)).pack(pady=15)
+
+    genero_pred = tk.StringVar(value="Todos")
+    plataforma_pred = tk.StringVar(value="Todos")
+
+    tk.Label(ventana_pred, text="Genero:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    genre_menu_pred = ttk.Combobox(ventana_pred, textvariable=genero_pred,values=genre_options, state="readonly", width=25)
+    genre_menu_pred.pack(pady=5)
+
+    tk.Label(ventana_pred, text="Plataforma:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    platform_menu_pred = ttk.Combobox(ventana_pred, textvariable=plataforma_pred,values=plataform_options, state="readonly", width=25)
+    platform_menu_pred.pack(pady=5)
+
+    ttk.Button(ventana_pred, text="Predecir", command=lambda: messagebox.showinfo("Predicción", f"Género: {genero_pred.get()}\nPlataforma: {plataforma_pred.get()}")).pack(pady=15)
+
+    
 
 # Filtros principales
 frame_filtros = tk.Frame(root)
