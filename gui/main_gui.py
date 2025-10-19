@@ -106,7 +106,23 @@ def predecir_tilin():
     platform_menu_pred = ttk.Combobox(ventana_pred, textvariable=plataforma_pred, values=platform_options, state="readonly", width=25)
     platform_menu_pred.pack(pady=5)
 
-    ttk.Button(ventana_pred, text="Predecir", command=lambda: messagebox.showinfo("Predicción", f"Género: {genero_pred.get()}\nPlataforma: {plataforma_pred.get()}")).pack(pady=15)
+    # Entrada para las ventas esperadas
+    tk.Label(ventana_pred, text="Ventas esperadas (en millones):", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    ventas_entry = tk.Entry(ventana_pred, width=28)
+    ventas_entry.pack(pady=5)
+
+
+    ttk.Button(
+    ventana_pred,
+    text="Predecir",
+    command=lambda: messagebox.showinfo(
+        "Predicción",
+        f"Género: {genero_pred.get()}\n"
+        f"Plataforma: {plataforma_pred.get()}\n"
+        f"Ventas esperadas: {ventas_entry.get()} millones"
+    )
+).pack(pady=15)
+
 
     
 
