@@ -89,7 +89,7 @@ def mostrar_ventas_totales():
     )
 def predecir_tilin():
     mensaje = "Ventana de prediccion"
-    messagebox.showinfo("Prediccion de tu videojuego")
+    messagebox.showinfo("Prediccion de tu videojuego", mensaje)
 
 # Filtros principales
 frame_filtros = tk.Frame(root)
