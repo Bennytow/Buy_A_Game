@@ -88,7 +88,7 @@ def mostrar_ventas_totales():
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
 def predecir_tilin():
-    messagebox.showinfo("hoholaa")
+    messagebox.showinfo("Prediccion de tu videojuego")
 
 # Filtros principales
 frame_filtros = tk.Frame(root)
