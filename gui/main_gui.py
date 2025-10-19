@@ -5,17 +5,22 @@ import pandas as pd
 # Interfaz en ventana
 root = tk.Tk()
 # Estilo general
-root.configure(bg="#1e1e1e")
+root.configure(bg="#1b1f2a")
 
 style = ttk.Style()
-style.theme_use("default")
+style.theme_use("clam")
+PRIMARY_COLOR = "#00adb5"
+SECONDARY_COLOR = "#393e46"
+BACKGROUND = "#222831"
+TEXT_COLOR = "#eeeeee"
+HOVER_COLOR = "#007b83"
 
 style.configure("Treeview",
-    background="#2b2b2b",
-    foreground="white",
-    fieldbackground="#2b2b2b",
-    rowheight=25,
-    font=("Times New Roman", 10)
+    background=SECONDARY_COLOR,
+    foreground=TEXT_COLOR,
+    fieldbackground=SECONDARY_COLOR,
+    rowheight=28,
+    font=("Segoe UI", 10)
 )
 
 style.configure("Treeview.Heading",
@@ -23,17 +28,31 @@ style.configure("Treeview.Heading",
     foreground="white",
     font=("Times New Roman", 10, "bold")
 )
-
-style.map("Treeview",
-    background=[("selected", "#005fa3")]
+style.configure("Treeview.Heading",
+    background=PRIMARY_COLOR,
+    foreground="white",
+    font=("Segoe UI", 11, "bold")
 )
 
+style.map("Treeview",
+    background=[("selected", HOVER_COLOR)],
+    foreground=[("selected", "white")]
+)
 root.title("Videojuegos Bajo Lupa")
-root.geometry("1920x1080")  # Tamaño de la ventana
+root.geometry("1280x720")  # Tamaño de la ventana
 
 # Etiqueta de bienvenida
-label = tk.Label(root, text="¿Comprarás un juego? Solo observa ;)", font=("Times New Roman", 18))
-label.pack(pady=10)
+label = tk.Label(
+    root,
+    text="¿Comprarás un juego? Solo observa ",
+    font=("Segoe UI Semibold", 22),
+    bg=BACKGROUND,
+    fg=PRIMARY_COLOR,
+)
+label.pack(pady=20)
+separator = ttk.Separator(root, orient="horizontal")
+separator.pack(fill="x", pady=5)
+
 
 # Cargar el dataset
 df = pd.read_csv("../data/dataset/vgsales.csv")
@@ -79,16 +98,17 @@ genre_var = tk.StringVar(value="Todos")
 platform_options = ["Todos"] + sorted(df["Platform"].dropna().unique().tolist())
 genre_options = ["Todos"] + sorted(df["Genre"].dropna().unique().tolist())
 
-tk.Label(frame_filtros, text="Plataforma:").grid(row=0, column=0, padx=5)
-platform_menu = ttk.Combobox(frame_filtros, textvariable=platform_var, values=platform_options, state="readonly")
-platform_menu.grid(row=0, column=1, padx=5)
+tk.Label(frame_filtros, text="Plataforma:", bg=BACKGROUND, fg=TEXT_COLOR, font=("Segoe UI", 11)).grid(row=0, column=0, padx=8)
+platform_menu = ttk.Combobox(frame_filtros, textvariable=platform_var, values=platform_options, state="readonly", width=18)
+platform_menu.grid(row=0, column=1, padx=8)
 
-tk.Label(frame_filtros, text="Género:").grid(row=0, column=2, padx=5)
-genre_menu = ttk.Combobox(frame_filtros, textvariable=genre_var, values=genre_options, state="readonly")
-genre_menu.grid(row=0, column=3, padx=5)
+tk.Label(frame_filtros, text="Género:", bg=BACKGROUND, fg=TEXT_COLOR, font=("Segoe UI", 11)).grid(row=0, column=2, padx=8)
+genre_menu = ttk.Combobox(frame_filtros, textvariable=genre_var, values=genre_options, state="readonly", width=18)
+genre_menu.grid(row=0, column=3, padx=8)
 
-tk.Button(frame_filtros, text="Filtrar", command=filtrar_tabla).grid(row=0, column=4, padx=5)
-tk.Button(frame_filtros, text="Ventas Globales", command=mostrar_ventas_totales).grid(row=0, column=5, padx=5)
+ttk.Button(frame_filtros, text=" Filtrar", command=filtrar_tabla).grid(row=0, column=4, padx=10)
+ttk.Button(frame_filtros, text=" Ventas Globales", command=mostrar_ventas_totales).grid(row=0, column=5, padx=10)
+
 
 # Tabla con scroll
 frame_tabla = tk.Frame(root)
@@ -113,7 +133,14 @@ for _, row in df.iterrows():
     tree.insert("", "end", values=list(row))
 
 tree.pack(expand=True, fill="both")
+footer = tk.Label(
+    root,
+    text="Desarrollado por Benny Gomez-Andres Alarcon-Carlos Mazabel Duván León — Proyecto de predicción de precios de videojuegos ",
+    bg=BACKGROUND,
+    fg="#888",
+    font=("Segoe UI", 9)
+)
+footer.pack(side="bottom", pady=10)
 
 # Ejecutar la ventana
-root.mainloop()
-
+root.mainloop() 
