@@ -122,14 +122,16 @@ def mostrar_ventas_totales():
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
 
-    df_grafica = df_filtrado.groupby("Platform")["Global_Sales"].sum().sort_values(ascending=False)
-    
-    plt.figure(figsize=(10,6))
-    df_grafica.plot(kind="bar", color="#CA72D4")
-    plt.title(f"Ventas globales por plataforma\nFiltros: {platform_var.get()} / {genre_var.get()}")
+    # Agrupar por plataforma y género
+    df_grafica = df_filtrado.groupby(["Platform", "Genre"])["Global_Sales"].sum().unstack(fill_value=0)
+
+    # Graficar
+    df_grafica.plot(kind="bar", figsize=(12,6), stacked=True, colormap="viridis")
+    plt.title(f"Ventas globales por plataforma y género\nFiltros: {platform_var.get()} / {genre_var.get()}")
     plt.ylabel("Ventas (millones)")
     plt.xlabel("Plataforma")
     plt.xticks(rotation=45)
+    plt.legend(title="Género")
     plt.tight_layout()
     plt.show()
 
@@ -260,3 +262,4 @@ def fade_in(window, alpha=0.0):
 
 fade_in(root)
 root.mainloop()
+
