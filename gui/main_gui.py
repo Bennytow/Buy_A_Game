@@ -19,9 +19,7 @@ try:
     fondo_label.place(x=0, y=0, relwidth=1, relheight=1)
 except Exception as e:
     print(f"No se pudo cargar la imagen de fondo: {e}")
-# -------------------------------------------------
 
-# Estilo general
 style = ttk.Style()
 style.theme_use("clam")
 PRIMARY_COLOR = "#00adb5"
