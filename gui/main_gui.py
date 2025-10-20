@@ -104,7 +104,7 @@ def predecir_tilin():
     genero_pred = tk.StringVar(value="Todos")
     plataforma_pred = tk.StringVar(value="Todos")
 
-    tk.Label(ventana_pred, text="Género:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    tk.Label(ventana_pred, text="Genero:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
     genre_menu_pred = ttk.Combobox(
         ventana_pred, textvariable=genero_pred, values=genre_options,
         state="readonly", width=25
@@ -120,7 +120,7 @@ def predecir_tilin():
 
     # Entrada para las ventas esperadas
     tk.Label(
-        ventana_pred, text="Ventas esperadas (en millones):",
+        ventana_pred, text="Ventas esperadas (en millones polfa):",
         bg=BACKGROUND, fg=TEXT_COLOR
     ).pack()
     ventas_entry = tk.Entry(ventana_pred, width=28)
@@ -132,7 +132,7 @@ def predecir_tilin():
         try:
             ventas_esperadas = float(ventas_entry.get())
         except ValueError:
-            messagebox.showerror("Error", "Por favor, ingresa un número válido para las ventas.")
+            messagebox.showerror("Error", "Por favor, ingresa un numero valido para las ventas.")
             return
 
         # Filtrar el dataset según género y plataforma
@@ -148,13 +148,13 @@ def predecir_tilin():
             diferencia = ventas_esperadas - promedio_ventas
 
             if diferencia > 0:
-                resultado = f"Tu predicción es OPTIMISTA 🌟\nPodrías superar el promedio de ventas ({promedio_ventas:.2f} millones)."
+                resultado = f"Tu predicción es OPTIMISTA =)\nPodrias superar el promedio de ventas ({promedio_ventas:.2f} millones)."
             elif diferencia < 0:
-                resultado = f"Tu predicción es CONSERVADORA ⚙️\nPodrías vender menos que el promedio ({promedio_ventas:.2f} millones)."
+                resultado = f"Tu predicción es CONSERVADORA \nPodrias vender menos que el promedio ({promedio_ventas:.2f} millones)."
             else:
-                resultado = f"Tu predicción es EXACTA 🎯\nCoincide con el promedio del dataset."
+                resultado = f"Tu predicción es EXACTA \nCoincide con el promedio del dataset."
         else:
-            resultado = "No hay datos suficientes para esa combinación de género y plataforma."
+            resultado = "No hay datos suficientes para esa combinacion de genero y plataforma."
 
         messagebox.showinfo(
             "Predicción de Ventas",
