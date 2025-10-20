@@ -59,7 +59,7 @@ df = pd.read_csv("../data/dataset/vgsales.csv")
 
 # Función para obtener el DataFrame filtrado
 def obtener_df_filtrado():
-    """Devuelve un DataFrame filtrado según la plataforma y género seleccionados."""
+    
     plataforma = platform_var.get()
     genero = genre_var.get()
     df_filtrado = df.copy()
@@ -89,7 +89,7 @@ def mostrar_ventas_totales():
     )
 def predecir_tilin():
     ventana_pred = tk.Toplevel(root)
-    ventana_pred.title("Predicción de tu videojuego")
+    ventana_pred.title("Prediccion de tu videojuego")
     ventana_pred.geometry("400x350")
     ventana_pred.configure(bg=BACKGROUND)
 
