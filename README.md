@@ -123,3 +123,6 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 * https://www.uhdpaper.com/2025/02/4295c-sunset-moon-synthwave-night.html?m=0#google_vignette (imagen BACKGROUND bg)
 * https://www.kaggle.com/ (datacenter principal)
 * https://stackoverflow.com/questions/78237438/python-customtkinter-and-matplotlib?utm_source=chatgpt.com (referencia para usar customtkinter y matplotlib)
+* https://pythonprogramming.net/how-to-embed-matplotlib-graph-tkinter-gui/?utm_source=chatgpt.com (como usar matplotlib)
+* https://www.geeksforgeeks.org/python/how-to-embed-matplotlib-charts-in-tkinter-gui/
+* https://www.deepl.com/es/translator (traductor usado para entender cada web o video)
