@@ -4,7 +4,7 @@ import pandas as pd
 from PIL import Image, ImageTk
 import time
 import pygame  
-
+import matplotlib.pyplot as plt  # <- añadido para la gráfica
 
 def mostrar_intro():
     pygame.mixer.init()
@@ -36,16 +36,13 @@ def mostrar_intro():
 
     splash.update()
 
-    # Fade-in
     for i in range(0, 11):
         splash.attributes("-alpha", i / 10)
         splash.update()
         time.sleep(0.1)
 
-    # Mantener visible
     time.sleep(1.5)
 
-    # Fade-out
     for i in range(10, -1, -1):
         splash.attributes("-alpha", i / 10)
         splash.update()
@@ -53,10 +50,7 @@ def mostrar_intro():
 
     splash.destroy()
 
-# === ANTES DE TODO: MOSTRAR INTRO ===
 mostrar_intro()
-
-# === INTERFAZ PRINCIPAL ===
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -122,10 +116,22 @@ def filtrar_tabla():
 def mostrar_ventas_totales():
     df_filtrado = obtener_df_filtrado()
     total = df_filtrado["Global_Sales"].sum()
+    
     messagebox.showinfo(
         "Ventas Globales (filtradas)",
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
+
+    df_grafica = df_filtrado.groupby("Platform")["Global_Sales"].sum().sort_values(ascending=False)
+    
+    plt.figure(figsize=(10,6))
+    df_grafica.plot(kind="bar", color="#CA72D4")
+    plt.title(f"Ventas globales por plataforma\nFiltros: {platform_var.get()} / {genre_var.get()}")
+    plt.ylabel("Ventas (millones)")
+    plt.xlabel("Plataforma")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 def predecir_tilin():
     ventana_pred = ctk.CTkToplevel(root)
