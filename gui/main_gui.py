@@ -89,66 +89,81 @@ def mostrar_ventas_totales():
     )
 def predecir_tilin():
     ventana_pred = tk.Toplevel(root)
-    ventana_pred.title("Prediccion de tu videojuego")
-    ventana_pred.geometry("400x300")
+    ventana_pred.title("Predicción de tu videojuego")
+    ventana_pred.geometry("400x350")
     ventana_pred.configure(bg=BACKGROUND)
 
-    tk.Label(ventana_pred, text="Ingresa los datos de tu videojuego", bg=BACKGROUND, fg=PRIMARY_COLOR, font=("Segoe UI semibold", 14)).pack(pady=15)
+    tk.Label(
+        ventana_pred,
+        text="Ingresa los datos de tu videojuego",
+        bg=BACKGROUND,
+        fg=PRIMARY_COLOR,
+        font=("Segoe UI Semibold", 14)
+    ).pack(pady=15)
 
     genero_pred = tk.StringVar(value="Todos")
     plataforma_pred = tk.StringVar(value="Todos")
 
-    tk.Label(ventana_pred, text="Genero:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
-    genre_menu_pred = ttk.Combobox(ventana_pred, textvariable=genero_pred,values=genre_options, state="readonly", width=25)
+    tk.Label(ventana_pred, text="Género:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    genre_menu_pred = ttk.Combobox(
+        ventana_pred, textvariable=genero_pred, values=genre_options,
+        state="readonly", width=25
+    )
     genre_menu_pred.pack(pady=5)
 
     tk.Label(ventana_pred, text="Plataforma:", bg=BACKGROUND, fg=TEXT_COLOR).pack()
-    platform_menu_pred = ttk.Combobox(ventana_pred, textvariable=plataforma_pred, values=platform_options, state="readonly", width=25)
+    platform_menu_pred = ttk.Combobox(
+        ventana_pred, textvariable=plataforma_pred, values=platform_options,
+        state="readonly", width=25
+    )
     platform_menu_pred.pack(pady=5)
 
     # Entrada para las ventas esperadas
-    tk.Label(ventana_pred, text="Ventas esperadas (en millones):", bg=BACKGROUND, fg=TEXT_COLOR).pack()
+    tk.Label(
+        ventana_pred, text="Ventas esperadas (en millones):",
+        bg=BACKGROUND, fg=TEXT_COLOR
+    ).pack()
     ventas_entry = tk.Entry(ventana_pred, width=28)
     ventas_entry.pack(pady=5)
 
-
     def calcular_prediccion():
-    genero = genero_pred.get()
-    plataforma = plataforma_pred.get()
-    try:
-        ventas_esperadas = float(ventas_entry.get())
-    except ValueError:
-        messagebox.showerror("Error", "Por favor, ingresa un número válido para las ventas.")
-        return
+        genero = genero_pred.get()
+        plataforma = plataforma_pred.get()
+        try:
+            ventas_esperadas = float(ventas_entry.get())
+        except ValueError:
+            messagebox.showerror("Error", "Por favor, ingresa un número válido para las ventas.")
+            return
 
-    # Filtrar el dataset según género y plataforma
-    df_filtrado = df.copy()
-    if genero != "Todos":
-        df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
-    if plataforma != "Todos":
-        df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
+        # Filtrar el dataset según género y plataforma
+        df_filtrado = df.copy()
+        if genero != "Todos":
+            df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
+        if plataforma != "Todos":
+            df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
 
-    # Calcular promedio de ventas globales en ese filtro
-    if not df_filtrado.empty:
-        promedio_ventas = df_filtrado["Global_Sales"].mean()
-        diferencia = ventas_esperadas - promedio_ventas
+        # Calcular promedio de ventas globales en ese filtro
+        if not df_filtrado.empty:
+            promedio_ventas = df_filtrado["Global_Sales"].mean()
+            diferencia = ventas_esperadas - promedio_ventas
 
-        if diferencia > 0:
-            resultado = f"Tu predicción es OPTIMISTA 🌟\nPodrías superar el promedio de ventas ({promedio_ventas:.2f} millones)."
-        elif diferencia < 0:
-            resultado = f"Tu predicción es CONSERVADORA ⚙️\nPodrías vender menos que el promedio ({promedio_ventas:.2f} millones)."
+            if diferencia > 0:
+                resultado = f"Tu predicción es OPTIMISTA 🌟\nPodrías superar el promedio de ventas ({promedio_ventas:.2f} millones)."
+            elif diferencia < 0:
+                resultado = f"Tu predicción es CONSERVADORA ⚙️\nPodrías vender menos que el promedio ({promedio_ventas:.2f} millones)."
+            else:
+                resultado = f"Tu predicción es EXACTA 🎯\nCoincide con el promedio del dataset."
         else:
-            resultado = f"Tu predicción es EXACTA 🎯\nCoincide con el promedio del dataset."
-    else:
-        resultado = "No hay datos suficientes para esa combinación de género y plataforma."
+            resultado = "No hay datos suficientes para esa combinación de género y plataforma."
 
-    messagebox.showinfo(
-        "Predicción de Ventas",
-        f"Género: {genero}\nPlataforma: {plataforma}\n"
-        f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
-    )
+        messagebox.showinfo(
+            "Predicción de Ventas",
+            f"Género: {genero}\nPlataforma: {plataforma}\n"
+            f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
+        )
 
-ttk.Button(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
+    ttk.Button(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
+
 
 
 
