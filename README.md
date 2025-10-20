@@ -115,3 +115,7 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 ## Bibliografia
 * https://youtube.com/playlist?list=PL7HAy5R0ehQXb2aFKOKyeCMequxyb5jzJ&si=hnI6TGuzGHxyOLrG (explicacion de tkinter (libreria))
 * https://youtube.com/playlist?list=PLg9145ptuAij_8zYgMeqwOV8ABwRYLuR3&si=jfRHMPP70IqYzsBJ (como usar numpy & pandas (libreria))
+* https://www.youtube.com/watch?v=cTu74xMkolg (como incluir imagenes en tkinter)
+* https://www.youtube.com/watch?v=Z1RJmh_OqeA (tkinter)
+* https://www.youtube.com/watch?v=YXPyB4XeYLA (GUI)
+* https://docs.python.org/3/
