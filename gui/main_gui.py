@@ -3,13 +3,13 @@ from tkinter import ttk, messagebox
 import pandas as pd
 from PIL import Image, ImageTk
 import time
-import pygame  # 🔊 para sonido en la intro
+import pygame  
 
-# === INTRO (ANIMACIÓN DE ENTRADA) ===
+
 def mostrar_intro():
     pygame.mixer.init()
     try:
-        pygame.mixer.Sound("intro_sound.wav").play()  # sonido tipo spray o pop
+        pygame.mixer.Sound("intro_sound.wav").play()  
     except:
         print("No se encontró el archivo de sonido (intro_sound.wav). Se omitirá el sonido.")
 
@@ -19,7 +19,7 @@ def mostrar_intro():
     splash.configure(fg_color="black")
 
     try:
-        lupa = ctk.CTkImage(light_image=Image.open("assets/lupa.png"), size=(120, 120))
+        lupa = ctk.CTkImage(light_image=Image.open("lupa.png"), size=(120, 120))
         label_img = ctk.CTkLabel(splash, image=lupa, text="")
         label_img.place(relx=0.5, rely=0.4, anchor="center")
     except:
@@ -28,7 +28,7 @@ def mostrar_intro():
 
     texto = ctk.CTkLabel(
         splash,
-        text="Buy A Game",
+        text="Buy A Game\n Videojuegos bajo lupa",
         text_color="white",
         font=("Arial Black", 28)
     )
