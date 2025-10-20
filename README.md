@@ -1,7 +1,7 @@
 # Buy A Game
 ## *Videojuegos bajo la lupa* 
 Integrantes:
-- Benny Javed Gomez Ruiz
+- Benny Javed Gomez Ruiz.
 - Duvan Andres Alarcon Mora
 - Duvan Felipe Leon Vallejo
 - Carlos Mario Mazabel Mora
