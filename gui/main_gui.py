@@ -74,9 +74,9 @@ try:
 except Exception as e:
     print(f"No se pudo cargar la imagen de fondo: {e}")
 
-PRIMARY_COLOR = "#00adb5"
-SECONDARY_COLOR = "#222831"
-TEXT_COLOR = "#C7C5B1"
+PRIMARY_COLOR = "#CA72D4"
+SECONDARY_COLOR = "#241924"
+TEXT_COLOR = "#B3AAB3"
 
 style = ttk.Style()
 style.theme_use("default")
