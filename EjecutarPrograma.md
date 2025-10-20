@@ -5,6 +5,7 @@
 ## * 2 Instalar dependencias necesarias 
 - En el archivo " requirements.txt
 - Tener en cuenta que en python las librerias se descargan como pip install y el nombre del archivo
+- pip install pygame pillow custom tkinter matplotlib .....
 ## * 3 Ejecutar el programa principal  
 - mainn.py
 
