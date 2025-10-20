@@ -112,16 +112,44 @@ def predecir_tilin():
     ventas_entry.pack(pady=5)
 
 
-    ttk.Button(
-    ventana_pred,
-    text="Predecir",
-    command=lambda: messagebox.showinfo(
-        "Predicción",
-        f"Género: {genero_pred.get()}\n"
-        f"Plataforma: {plataforma_pred.get()}\n"
-        f"Ventas esperadas: {ventas_entry.get()} millones"
+    def calcular_prediccion():
+    genero = genero_pred.get()
+    plataforma = plataforma_pred.get()
+    try:
+        ventas_esperadas = float(ventas_entry.get())
+    except ValueError:
+        messagebox.showerror("Error", "Por favor, ingresa un número válido para las ventas.")
+        return
+
+    # Filtrar el dataset según género y plataforma
+    df_filtrado = df.copy()
+    if genero != "Todos":
+        df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
+    if plataforma != "Todos":
+        df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
+
+    # Calcular promedio de ventas globales en ese filtro
+    if not df_filtrado.empty:
+        promedio_ventas = df_filtrado["Global_Sales"].mean()
+        diferencia = ventas_esperadas - promedio_ventas
+
+        if diferencia > 0:
+            resultado = f"Tu predicción es OPTIMISTA 🌟\nPodrías superar el promedio de ventas ({promedio_ventas:.2f} millones)."
+        elif diferencia < 0:
+            resultado = f"Tu predicción es CONSERVADORA ⚙️\nPodrías vender menos que el promedio ({promedio_ventas:.2f} millones)."
+        else:
+            resultado = f"Tu predicción es EXACTA 🎯\nCoincide con el promedio del dataset."
+    else:
+        resultado = "No hay datos suficientes para esa combinación de género y plataforma."
+
+    messagebox.showinfo(
+        "Predicción de Ventas",
+        f"Género: {genero}\nPlataforma: {plataforma}\n"
+        f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
     )
-).pack(pady=15)
+
+ttk.Button(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
+
 
 
     
