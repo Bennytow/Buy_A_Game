@@ -1,7 +1,7 @@
 # COMO EJECUTAR EL PROGRAMA?
 ## Para ejecutar el programa debes seguir los siguientes pasos:
 ## * 1 Clonar repositorio
-- https:/github.com/Bennytow/Buy_A_Game
+- git clone https:/github.com/Bennytow/Buy_A_Game.git
 ## * 2 Instalar dependencias necesarias 
 - En el archivo " requirements.txt
 - Tener en cuenta que en python las librerias se descargan como pip install y el nombre del archivo
