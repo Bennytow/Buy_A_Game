@@ -4,9 +4,24 @@ import pandas as pd
 
 # Interfaz en ventana
 root = tk.Tk()
-# Estilo general
-root.configure(bg="#1b1f2a")
+root.title("Videojuegos Bajo Lupa")
+root.geometry("1280x720")  # Tamaño de la ventana
 
+# --- Imagen de fondo (único cambio importante) ---
+from PIL import Image, ImageTk
+
+try:
+    imagen_fondo = Image.open("image.jpg")  # tu imagen
+    imagen_fondo = imagen_fondo.resize((1280, 720))
+    fondo_tk = ImageTk.PhotoImage(imagen_fondo)
+
+    fondo_label = tk.Label(root, image=fondo_tk)
+    fondo_label.place(x=0, y=0, relwidth=1, relheight=1)
+except Exception as e:
+    print(f"No se pudo cargar la imagen de fondo: {e}")
+# -------------------------------------------------
+
+# Estilo general
 style = ttk.Style()
 style.theme_use("clam")
 PRIMARY_COLOR = "#00adb5"
@@ -24,11 +39,6 @@ style.configure("Treeview",
 )
 
 style.configure("Treeview.Heading",
-    background="#0078d7",
-    foreground="white",
-    font=("Times New Roman", 10, "bold")
-)
-style.configure("Treeview.Heading",
     background=PRIMARY_COLOR,
     foreground="white",
     font=("Segoe UI", 11, "bold")
@@ -38,8 +48,6 @@ style.map("Treeview",
     background=[("selected", HOVER_COLOR)],
     foreground=[("selected", "white")]
 )
-root.title("Videojuegos Bajo Lupa")
-root.geometry("1280x720")  # Tamaño de la ventana
 
 # Etiqueta de bienvenida
 label = tk.Label(
@@ -50,16 +58,15 @@ label = tk.Label(
     fg=PRIMARY_COLOR,
 )
 label.pack(pady=20)
+
 separator = ttk.Separator(root, orient="horizontal")
 separator.pack(fill="x", pady=5)
-
 
 # Cargar el dataset
 df = pd.read_csv("../data/dataset/vgsales.csv")
 
 # Función para obtener el DataFrame filtrado
 def obtener_df_filtrado():
-    
     plataforma = platform_var.get()
     genero = genre_var.get()
     df_filtrado = df.copy()
@@ -72,10 +79,8 @@ def obtener_df_filtrado():
 # Función para filtrar y mostrar la tabla
 def filtrar_tabla():
     df_filtrado = obtener_df_filtrado()
-    # Limpiar tabla
     for i in tree.get_children():
         tree.delete(i)
-    # Insertar filas filtradas
     for _, row in df_filtrado.iterrows():
         tree.insert("", "end", values=list(row))
 
@@ -87,6 +92,7 @@ def mostrar_ventas_totales():
         "Ventas Globales (filtradas)",
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
+
 def predecir_tilin():
     ventana_pred = tk.Toplevel(root)
     ventana_pred.title("Prediccion de tu videojuego")
@@ -118,7 +124,6 @@ def predecir_tilin():
     )
     platform_menu_pred.pack(pady=5)
 
-    # Entrada para las ventas esperadas
     tk.Label(
         ventana_pred, text="Ventas esperadas (en millones polfa):",
         bg=BACKGROUND, fg=TEXT_COLOR
@@ -135,14 +140,12 @@ def predecir_tilin():
             messagebox.showerror("Error", "Por favor, ingresa un numero valido para las ventas.")
             return
 
-        # Filtrar el dataset según género y plataforma
         df_filtrado = df.copy()
         if genero != "Todos":
             df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
         if plataforma != "Todos":
             df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
 
-        # Calcular promedio de ventas globales en ese filtro
         if not df_filtrado.empty:
             promedio_ventas = df_filtrado["Global_Sales"].mean()
             diferencia = ventas_esperadas - promedio_ventas
@@ -165,12 +168,8 @@ def predecir_tilin():
     ttk.Button(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
 
 
-
-
-    
-
 # Filtros principales
-frame_filtros = tk.Frame(root)
+frame_filtros = tk.Frame(root, bg=BACKGROUND)
 frame_filtros.pack(pady=10)
 
 platform_var = tk.StringVar(value="Todos")
@@ -206,16 +205,15 @@ tree["show"] = "headings"
 
 scrollbar.config(command=tree.yview)
 
-# Encabezados para orden
 for col in df.columns:
     tree.heading(col, text=col)
-    tree.column(col, width=100, anchor="center")  # Ajusta ancho
+    tree.column(col, width=100, anchor="center")
 
-# Insertar datos iniciales
 for _, row in df.iterrows():
     tree.insert("", "end", values=list(row))
 
 tree.pack(expand=True, fill="both")
+
 footer = tk.Label(
     root,
     text="Desarrollado por Benny Gomez-Andres Alarcon-Carlos Mazabel Duván León — Proyecto de predicción de precios de videojuegos ",
@@ -225,5 +223,4 @@ footer = tk.Label(
 )
 footer.pack(side="bottom", pady=10)
 
-# Ejecutar la ventana
-root.mainloop() 
+root.mainloop()
