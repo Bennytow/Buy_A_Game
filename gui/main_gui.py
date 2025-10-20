@@ -44,7 +44,7 @@ root.geometry("1280x720")  # Tamaño de la ventana
 # Etiqueta de bienvenida
 label = tk.Label(
     root,
-    text="¿Comprarás un juego? Solo observa ",
+    text="¿Compraras un juego o lo pondras en el mercado?",
     font=("Segoe UI Semibold", 22),
     bg=BACKGROUND,
     fg=PRIMARY_COLOR,
