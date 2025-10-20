@@ -5,14 +5,14 @@ import pandas as pd
 # Interfaz en ventana
 root = tk.Tk()
 root.title("Videojuegos Bajo Lupa")
-root.geometry("1280x720")  # Tamaño de la ventana
+root.geometry("1280x720")  
 
-# --- Imagen de fondo (único cambio importante) ---
+
 from PIL import Image, ImageTk
 
 try:
-    imagen_fondo = Image.open("image.jpg")  # tu imagen
-    imagen_fondo = imagen_fondo.resize((1280, 720))
+    imagen_fondo = Image.open("image.jpg")  
+    imagen_fondo = imagen_fondo.resize((1920, 1080))
     fondo_tk = ImageTk.PhotoImage(imagen_fondo)
 
     fondo_label = tk.Label(root, image=fondo_tk)
