@@ -148,11 +148,11 @@ def predecir_tilin():
             diferencia = ventas_esperadas - promedio_ventas
 
             if diferencia > 0:
-                resultado = f"Tu predicción es OPTIMISTA =)\nPodrias superar el promedio de ventas ({promedio_ventas:.2f} millones)."
+                resultado = f"Tu prediccion es OPTIMISTA =)\nPodrias superar el promedio de ventas ({promedio_ventas:.2f} millones)."
             elif diferencia < 0:
-                resultado = f"Tu predicción es CONSERVADORA \nPodrias vender menos que el promedio ({promedio_ventas:.2f} millones)."
+                resultado = f"Tu prediccion es CONSERVADORA \nPodrias vender menos que el promedio ({promedio_ventas:.2f} millones)."
             else:
-                resultado = f"Tu predicción es EXACTA \nCoincide con el promedio del dataset."
+                resultado = f"Tu prediccion es EXACTA \nCoincide con el promedio del dataset."
         else:
             resultado = "No hay datos suficientes para esa combinacion de genero y plataforma."
 
