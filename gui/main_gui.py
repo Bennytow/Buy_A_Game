@@ -157,7 +157,7 @@ def predecir_tilin():
             resultado = "No hay datos suficientes para esa combinacion de genero y plataforma."
 
         messagebox.showinfo(
-            "Predicción de Ventas",
+            "Prediccion de Ventas",
             f"Género: {genero}\nPlataforma: {plataforma}\n"
             f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
         )
