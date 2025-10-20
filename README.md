@@ -119,3 +119,5 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
 * https://www.youtube.com/watch?v=Z1RJmh_OqeA (tkinter)
 * https://www.youtube.com/watch?v=YXPyB4XeYLA (GUI)
 * https://docs.python.org/3/
+* https://freesound.org/people/nomentero/sounds/727926/ (sonido usado en el programa)
+* https://www.uhdpaper.com/2025/02/4295c-sunset-moon-synthwave-night.html?m=0#google_vignette (imagen BACKGROUND bg)
