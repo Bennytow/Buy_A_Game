@@ -2,32 +2,82 @@ import customtkinter as ctk
 from tkinter import ttk, messagebox
 import pandas as pd
 from PIL import Image, ImageTk
+import time
+import pygame  # 🔊 para sonido en la intro
 
-# --- CONFIGURACIÓN GLOBAL DE ESTILO ---
-ctk.set_appearance_mode("dark")   # "dark" o "light"
+# === INTRO (ANIMACIÓN DE ENTRADA) ===
+def mostrar_intro():
+    pygame.mixer.init()
+    try:
+        pygame.mixer.Sound("intro_sound.wav").play()  # sonido tipo spray o pop
+    except:
+        print("No se encontró el archivo de sonido (intro_sound.wav). Se omitirá el sonido.")
+
+    splash = ctk.CTk()
+    splash.overrideredirect(True)
+    splash.geometry("500x300+500+250")
+    splash.configure(fg_color="black")
+
+    try:
+        lupa = ctk.CTkImage(light_image=Image.open("assets/lupa.png"), size=(120, 120))
+        label_img = ctk.CTkLabel(splash, image=lupa, text="")
+        label_img.place(relx=0.5, rely=0.4, anchor="center")
+    except:
+        label_img = ctk.CTkLabel(splash, text="🔍", text_color="white", font=("Arial", 100))
+        label_img.place(relx=0.5, rely=0.4, anchor="center")
+
+    texto = ctk.CTkLabel(
+        splash,
+        text="Buy A Game",
+        text_color="white",
+        font=("Arial Black", 28)
+    )
+    texto.place(relx=0.5, rely=0.75, anchor="center")
+
+    splash.update()
+
+    # Fade-in
+    for i in range(0, 11):
+        splash.attributes("-alpha", i / 10)
+        splash.update()
+        time.sleep(0.1)
+
+    # Mantener visible
+    time.sleep(1.5)
+
+    # Fade-out
+    for i in range(10, -1, -1):
+        splash.attributes("-alpha", i / 10)
+        splash.update()
+        time.sleep(0.08)
+
+    splash.destroy()
+
+# === ANTES DE TODO: MOSTRAR INTRO ===
+mostrar_intro()
+
+# === INTERFAZ PRINCIPAL ===
+
+ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
-# --- VENTANA PRINCIPAL ---
 root = ctk.CTk()
 root.title("Videojuegos Bajo Lupa")
 root.geometry("1280x720")
+root.attributes('-alpha', 0.0)
 
-# Fondo tipo “glassmorphism”
 try:
     imagen_fondo = Image.open("image.jpg").resize((1920, 1080))
     fondo_tk = ImageTk.PhotoImage(imagen_fondo)
-
     fondo_label = ctk.CTkLabel(root, image=fondo_tk, text="")
     fondo_label.place(x=0, y=0, relwidth=1, relheight=1)
 except Exception as e:
     print(f"No se pudo cargar la imagen de fondo: {e}")
 
-# Colores
 PRIMARY_COLOR = "#00adb5"
-SECONDARY_COLOR = "#222831"  # 🔹 Color secundario
+SECONDARY_COLOR = "#222831"
 TEXT_COLOR = "#C7C5B1"
 
-# 🔹 Estilo para la tabla (solo añadido esto)
 style = ttk.Style()
 style.theme_use("default")
 style.configure(
@@ -37,12 +87,8 @@ style.configure(
     foreground=TEXT_COLOR,
     rowheight=25,
 )
-style.map(
-    "Treeview",
-    background=[("selected", PRIMARY_COLOR)]
-)
+style.map("Treeview", background=[("selected", PRIMARY_COLOR)])
 
-# Título
 label = ctk.CTkLabel(
     root,
     text="¿Compraras un juego o lo pondrás en el mercado?",
@@ -51,14 +97,11 @@ label = ctk.CTkLabel(
 )
 label.pack(pady=20)
 
-# Línea separadora
 separator = ttk.Separator(root, orient="horizontal")
 separator.pack(fill="x", pady=5)
 
-# --- CARGAR DATASET ---
 df = pd.read_csv("../data/dataset/vgsales.csv")
 
-# --- FUNCIONES DE LÓGICA ---
 def obtener_df_filtrado():
     plataforma = platform_var.get()
     genero = genre_var.get()
@@ -151,7 +194,6 @@ def predecir_tilin():
 
     ctk.CTkButton(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
 
-# --- FILTROS ---
 frame_filtros = ctk.CTkFrame(root, fg_color=("gray10", "gray20"))
 frame_filtros.pack(pady=10)
 
@@ -174,7 +216,6 @@ ctk.CTkButton(frame_filtros, text="Ventas Globales", command=mostrar_ventas_tota
 
 ctk.CTkButton(root, text="Predecir tu juego", command=predecir_tilin).pack(pady=20)
 
-# --- TABLA ---
 frame_tabla = ctk.CTkFrame(root)
 frame_tabla.pack(expand=True, fill="both")
 
@@ -195,7 +236,6 @@ for _, row in df.iterrows():
 
 tree.pack(expand=True, fill="both")
 
-# Footer
 footer = ctk.CTkLabel(
     root,
     text="Desarrollado por Benny Gomez — Andres Mora - Duvan Leon - Mario Mora Proyecto de predicción de videojuegos",
@@ -204,4 +244,13 @@ footer = ctk.CTkLabel(
 )
 footer.pack(side="bottom", pady=10)
 
+def fade_in(window, alpha=0.0):
+    if alpha < 1.0:
+        alpha += 0.05
+        window.attributes('-alpha', alpha)
+        window.after(50, lambda: fade_in(window, alpha))
+    else:
+        window.attributes('-alpha', 1.0)
+
+fade_in(root)
 root.mainloop()
