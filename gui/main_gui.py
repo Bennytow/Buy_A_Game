@@ -158,7 +158,7 @@ def predecir_tilin():
 
         messagebox.showinfo(
             "Prediccion de Ventas",
-            f"Género: {genero}\nPlataforma: {plataforma}\n"
+            f"Genero: {genero}\nPlataforma: {plataforma}\n"
             f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
         )
 
