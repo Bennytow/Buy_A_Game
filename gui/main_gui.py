@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from tkinter import ttk, messagebox
+import joblib
 import pandas as pd
 from PIL import Image, ImageTk
 import time
@@ -136,26 +137,32 @@ def mostrar_ventas_totales():
     plt.show()
 
 def predecir_tilin():
+    import joblib
+    import pandas as pd   
+
+    modelo = joblib.load("./models/modelo_entrenado.pkl")
+
     ventana_pred = ctk.CTkToplevel(root)
     ventana_pred.title("Predicción de tu videojuego")
     ventana_pred.geometry("400x350")
 
     ctk.CTkLabel(
         ventana_pred,
-        text="Ingresa los datos de tu videojuego",
+        text="Predcie las posibles ventas de tu videojuego!!",
         text_color=PRIMARY_COLOR,
         font=("Segoe UI Semibold", 14)
     ).pack(pady=15)
 
-    genero_pred = ctk.StringVar(value="Todos")
-    plataforma_pred = ctk.StringVar(value="Todos")
+    genero_pred = ctk.StringVar(value="")
+    plataforma_pred = ctk.StringVar(value="")
+    año_pred = ctk.StringVar(value="")
+    puntuacion_pred = ctk.StringVar(value="7.5")
 
-    ctk.CTkLabel(ventana_pred, text="Género:", text_color=TEXT_COLOR).pack()
-    genre_menu_pred = ctk.CTkComboBox(
-        ventana_pred, variable=genero_pred, values=genre_options, width=220
-    )
-    genre_menu_pred.pack(pady=5)
+    # entradas del user  
 
+    ctk.CTkLabel(ventana_pred, text="Genero:", text_color=TEXT_COLOR).pack()
+    ctk.CTkComboBox(ventana_pred, variable=genero_pred, values=genre_options, width=220).pack(pady=5)
+    
     ctk.CTkLabel(ventana_pred, text="Plataforma:", text_color=TEXT_COLOR).pack()
     platform_menu_pred = ctk.CTkComboBox(
         ventana_pred, variable=plataforma_pred, values=platform_options, width=220
