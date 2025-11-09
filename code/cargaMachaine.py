@@ -1,9 +1,16 @@
-#Utilizaremos joblib para el modelo
+# Utilizaremos joblib para cargar el modelo
 import joblib
+import pandas as pd
+
+# Cargar el modelo entrenado
 modelo = joblib.load('../models/modelo_entrenado.pkl')
-#Funcion para hacer predicciones
+
+# Función para hacer predicciones
 def predicciones(X_nuevo):
-    predicciones = modelo.predict(X_nuevo)
-    return predicciones
-#Organizacio del archivo csv
-#Rango,Nombre,Plataforma,Año,Genero,Puntuacion,Na_ventas,EU_ventas,Jp_ventas,Otras_ventas
+    """
+    Recibe un DataFrame o lista con las mismas columnas que el modelo espera.
+    Retorna las predicciones.
+    """
+    pred = modelo.predict(X_nuevo)
+    return pred
+
