@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 import time
 import pygame  
 import matplotlib.pyplot as plt  # <- añadido para la gráfica
+import json
 
 def mostrar_intro():
     pygame.mixer.init()
@@ -17,7 +18,7 @@ def mostrar_intro():
     splash = ctk.CTk()
     splash.overrideredirect(True)
     splash.geometry("500x300+500+250")
-    splash.configure(fg_color="black")
+    splash.configure(fg_color="#18464F")
 
     try:
         lupa = ctk.CTkImage(light_image=Image.open("lupa.png"), size=(120, 120))
@@ -69,16 +70,16 @@ try:
 except Exception as e:
     print(f"No se pudo cargar la imagen de fondo: {e}")
 
-PRIMARY_COLOR = "#CA72D4"
-SECONDARY_COLOR = "#241924"
-TEXT_COLOR = "#B3AAB3"
+PRIMARY_COLOR = "#77C4ED"
+SECONDARY_COLOR = "#193F57"
+TEXT_COLOR = "#EDC477"
 
 style = ttk.Style()
 style.theme_use("default")
 style.configure(
     "Treeview",
     background=SECONDARY_COLOR,
-    fieldbackground=SECONDARY_COLOR,
+    fieldbackground=SECONDARY_COlOR,
     foreground=TEXT_COLOR,
     rowheight=25,
 )
@@ -86,8 +87,8 @@ style.map("Treeview", background=[("selected", PRIMARY_COLOR)])
 
 label = ctk.CTkLabel(
     root,
-    text="¿Compraras un juego o lo pondrás en el mercado?",
-    font=("Segoe UI Semibold", 24),
+    text="¿Compraras un juego o lo pondrás en el mercado?\n Solo intenta perdecir tu juego.",
+    font=("Times New Roman", 24),
     text_color=PRIMARY_COLOR,
 )
 label.pack(pady=20)
@@ -123,10 +124,7 @@ def mostrar_ventas_totales():
         f"Según filtros seleccionados:\n{platform_var.get()} / {genre_var.get()}\n\nTotal global de ventas: ${total:.2f} millones"
     )
 
-    # Agrupar por plataforma y género
     df_grafica = df_filtrado.groupby(["Platform", "Genre"])["Global_Sales"].sum().unstack(fill_value=0)
-
-    # Graficar
     df_grafica.plot(kind="bar", figsize=(12,6), stacked=True, colormap="viridis")
     plt.title(f"Ventas globales por plataforma y género\nFiltros: {platform_var.get()} / {genre_var.get()}")
     plt.ylabel("Ventas (millones)")
@@ -140,15 +138,19 @@ def predecir_tilin():
     import joblib
     import pandas as pd   
 
-    modelo = joblib.load("./models/modelo_entrenado.pkl")
+    modelo = joblib.load("../models/modelo_entrenado.pkl")
+
+    # Cargar columnas esperadas
+    with open("../models/columnas_modelo.json", "r") as f:
+        columnas_esperadas = json.load(f)
 
     ventana_pred = ctk.CTkToplevel(root)
     ventana_pred.title("Predicción de tu videojuego")
-    ventana_pred.geometry("400x350")
+    ventana_pred.geometry("500x450")
 
     ctk.CTkLabel(
         ventana_pred,
-        text="Predcie las posibles ventas de tu videojuego!!",
+        text="¡Predice las posibles ventas de tu videojuego!",
         text_color=PRIMARY_COLOR,
         font=("Segoe UI Semibold", 14)
     ).pack(pady=15)
@@ -156,58 +158,63 @@ def predecir_tilin():
     genero_pred = ctk.StringVar(value="")
     plataforma_pred = ctk.StringVar(value="")
     año_pred = ctk.StringVar(value="")
-    puntuacion_pred = ctk.StringVar(value="7.5")
+    puntuacion_pred = ctk.StringVar(value="")
 
-    # entradas del user  
-
-    ctk.CTkLabel(ventana_pred, text="Genero:", text_color=TEXT_COLOR).pack()
+    ctk.CTkLabel(ventana_pred, text="Género:", text_color=TEXT_COLOR).pack()
     ctk.CTkComboBox(ventana_pred, variable=genero_pred, values=genre_options, width=220).pack(pady=5)
     
     ctk.CTkLabel(ventana_pred, text="Plataforma:", text_color=TEXT_COLOR).pack()
-    platform_menu_pred = ctk.CTkComboBox(
-        ventana_pred, variable=plataforma_pred, values=platform_options, width=220
-    )
-    platform_menu_pred.pack(pady=5)
+    ctk.CTkComboBox(ventana_pred, variable=plataforma_pred, values=platform_options, width=220).pack(pady=5)
 
-    ctk.CTkLabel(ventana_pred, text="Ventas esperadas (en millones):", text_color=TEXT_COLOR).pack()
-    ventas_entry = ctk.CTkEntry(ventana_pred, width=220)
-    ventas_entry.pack(pady=5)
+    ctk.CTkLabel(ventana_pred, text="Año:", text_color=TEXT_COLOR).pack()
+    ctk.CTkEntry(ventana_pred, textvariable=año_pred, width=220).pack(pady=5)
 
+    ctk.CTkLabel(ventana_pred, text="Ventas NA_Sales (estimadas previas):", text_color=TEXT_COLOR).pack()
+    ctk.CTkEntry(ventana_pred, textvariable=puntuacion_pred, width=220).pack(pady=5)
+
+    # ----------------- FUNCIÓN CORREGIDA -----------------
     def calcular_prediccion():
-        genero = genero_pred.get()
-        plataforma = plataforma_pred.get()
-        try:
-            ventas_esperadas = float(ventas_entry.get())
-        except ValueError:
-            messagebox.showerror("Error", "Por favor, ingresa un número válido para las ventas.")
+        if not año_pred.get() or not puntuacion_pred.get():
+            messagebox.showwarning("Atención", "Completa Año y Ventas NA_Sales estimadas.")
+            return
+        if plataforma_pred.get() not in platform_options or genero_pred.get() not in genre_options:
+            messagebox.showwarning("Atención", "Selecciona Plataforma y Género válidos.")
             return
 
-        df_filtrado = df.copy()
-        if genero != "Todos":
-            df_filtrado = df_filtrado[df_filtrado["Genre"] == genero]
-        if plataforma != "Todos":
-            df_filtrado = df_filtrado[df_filtrado["Platform"] == plataforma]
+        try:
+            X_nuevo = pd.DataFrame({
+                'Platform': [plataforma_pred.get()],
+                'Genre': [genero_pred.get()],
+                'Year': [int(año_pred.get())],
+                'NA_Sales': [float(puntuacion_pred.get())]
+            })
+        except Exception as e:
+            messagebox.showerror("Error", f"Datos inválidos: {e}")
+            return
 
-        if not df_filtrado.empty:
-            promedio_ventas = df_filtrado["Global_Sales"].mean()
-            diferencia = ventas_esperadas - promedio_ventas
+        X_nuevo_encoded = pd.get_dummies(X_nuevo, drop_first=True)
+        X_final = pd.DataFrame(0, index=[0], columns=columnas_esperadas)
 
-            if diferencia > 0:
-                resultado = f"Tu predicción es OPTIMISTA =)\nPodrías superar el promedio de ventas ({promedio_ventas:.2f} millones)."
-            elif diferencia < 0:
-                resultado = f"Tu predicción es CONSERVADORA\nPodrías vender menos que el promedio ({promedio_ventas:.2f} millones)."
-            else:
-                resultado = f"Tu predicción es EXACTA\nCoincide con el promedio del dataset."
-        else:
-            resultado = "No hay datos suficientes para esa combinación de género y plataforma."
+        for col in X_nuevo_encoded.columns:
+            if col in X_final.columns:
+                X_final[col] = X_nuevo_encoded[col]
 
-        messagebox.showinfo(
-            "Predicción de Ventas",
-            f"Género: {genero}\nPlataforma: {plataforma}\n"
-            f"Ventas esperadas: {ventas_esperadas:.2f} millones\n\n{resultado}"
-        )
+        print("\n=== DEBUG PREDICCIÓN ===")
+        print("Columnas esperadas:", len(columnas_esperadas))
+        print("Valores fila final:")
+        print(X_final.iloc[0])
 
-    ctk.CTkButton(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=15)
+        try:
+            pred = modelo.predict(X_final)[0]
+            messagebox.showinfo(
+                "Resultado",
+                f"🎮 Predicción de ventas en Norteamérica (NA_Sales):\n{pred:.2f} millones de copias"
+            )
+        except Exception as err:
+            messagebox.showerror("Error", f"Ocurrió un error al predecir:\n{err}")
+    # ----------------- FIN FUNCIÓN CORREGIDA -----------------
+
+    ctk.CTkButton(ventana_pred, text="Predecir", command=calcular_prediccion).pack(pady=20)
 
 frame_filtros = ctk.CTkFrame(root, fg_color=("gray10", "gray20"))
 frame_filtros.pack(pady=10)
