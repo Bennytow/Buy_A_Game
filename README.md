@@ -100,9 +100,6 @@ en función de las ventas por región (`NA_Sales`, `EU_Sales`, `JP_Sales`, `Othe
    - 80% de los datos se usa para entrenar el modelo.
    - 20% se reserva para probar la precisión del modelo.
 
-4. **Entrenamiento:**
-   - Se
-
 
 ### Herramientas utilizadas
 - **Python 3**
